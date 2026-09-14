@@ -1,0 +1,157 @@
+{
+  "experiment": "GAP_to_GMP_single_architectural_variable",
+  "status": "COMPLETE_REJECT_ACCURACY",
+  "git": {
+    "initial_status": "not a git repository",
+    "initial_branch": null,
+    "initial_head": null,
+    "handling": "Created a local main baseline snapshot before GMP changes; kept all pre-existing data/checkpoints/logs on disk and excluded large generated files from Git tracking. No reset, checkout discard, deletion, or merge was performed.",
+    "baseline_commit": "34f8a86df2df0654ac2af56fdbd1189d4689af83",
+    "branch": "exp/gmp-ablation",
+    "baseline_snapshot_author": "Codex <codex@local.invalid> (local archival identity; pre-existing Git author was unset)"
+  },
+  "sources": {
+    "phase_a_r8b_checkpoint": "experiments/recu_r8b/recu_r8b_r7_pow2_fc_20260912_225827/best.pt",
+    "phase_a_r8b_checkpoint_sha256": "c07ec3b29b88bbf70d3300f0bb19c7113abdadd305eb3d73cc12c7f40c2b0ba8",
+    "phase_b_r7_checkpoint": "experiments/recu_r7/recu_r7_r6_head_bn_pow2_20260912_220758/best.pt",
+    "phase_b_r7_checkpoint_sha256": "32b720c0dfd876fdabbf7d1004efe725bcfa08d35ebc66269a6c32120077b73b",
+    "h0_result_sha256": "b608bc9d5325ee9cfa79802c3d8bf4904365c8bf49ac4ad82235357e57465ac3",
+    "h1mp_result_sha256": "83da34d5c4f77643c2e9b2f69d6a8f478f70b2eb8673bbb37457d5e59efda82d",
+    "h2a_v2_result_sha256": "13e7889628432bcdf2b3419503492e72c7604ba858993b4b9008746aec857f12"
+  },
+  "baseline": {
+    "safe_r8b_h2a_v2_official_test_accuracy_pct": 85.03,
+    "comparable_r8b_gap_software_official_test_accuracy_pct": 85.40
+  },
+  "phase_a_zero_shot_h2a_v2": {
+    "method": "GAP_to_GMP_direct_replacement_in_frozen_GAP_trained_R8B_H2A_v2_integer_replay",
+    "raw_result": "experiments/gmp_ablation/zero_shot.json",
+    "official_test_count": 10000,
+    "gap_accuracy_pct": 85.03,
+    "gmp_accuracy_pct": 23.95,
+    "delta_vs_gap_pp": -61.08,
+    "prediction_mismatch_count": 7665,
+    "absolute_logit_difference": {
+      "mean": 7.636649516601563,
+      "max": 33.34375
+    },
+    "stage3_input_integer": {
+      "shape_per_image": [64, 8, 8],
+      "bits_signed": 10,
+      "shift": 6,
+      "observed_min": -1,
+      "observed_max": 504
+    },
+    "gmp_output_integer": {
+      "shape_per_image": [64],
+      "bits_signed": 10,
+      "shift": 6,
+      "observed_min": 0,
+      "observed_max": 504,
+      "observed_mean": 114.6646796875,
+      "observed_std": 71.20294564202051,
+      "histogram": "experiments/gmp_ablation/zero_shot.json#gmp_output_q.histogram_nonzero_bins",
+      "max_register_bits_signed": 10,
+      "saturation_at_gmp_max": 0,
+      "h2_overflow_total": 0
+    },
+    "head_input_real_distribution": {
+      "gap_min": 0.0,
+      "gap_max": 2.321044921875,
+      "gap_mean": 0.27500579147338866,
+      "gmp_min": 0.0,
+      "gmp_max": 7.875,
+      "gmp_mean": 1.7916356201171875
+    },
+    "source_weights_identical_before_after": true,
+    "interpretation": "Distribution-shift measurement, not fair trained GMP architecture accuracy"
+  },
+  "phase_b_gmp_r8b_level": {
+    "method": "GMP fine-tuned from GAP R7 source with R8B signed-pow2 FC projection; not scratch",
+    "run_dir": "experiments/gmp_ablation/gmp_r8b_from_r7_20260914_231241",
+    "initial_gap_gmp_parameter_state_equal": true,
+    "architecture_change": "Only global average pooling replaced by global max pooling",
+    "recipe": {
+      "seed": 123,
+      "epochs": 100,
+      "train_count": 45000,
+      "validation_count": 5000,
+      "train_validation_source": "Disjoint CIFAR-10 TRAIN-derived split",
+      "batch_size": 128,
+      "optimizer": "SGD",
+      "initial_lr": 0.0001,
+      "momentum": 0.9,
+      "weight_decay": 0.0,
+      "lr_schedule": "CosineAnnealingLR(T_max=100)",
+      "recu_tau": 0.99,
+      "augmentation": "RandomCrop(32,padding=4), RandomHorizontalFlip, ToTensor, no Normalize"
+    },
+    "zero_epoch_validation_accuracy_pct": 67.88,
+    "overall_best_validation_accuracy_pct": 67.88,
+    "overall_best_epoch": 0,
+    "overall_best_reload_validation_accuracy_pct": 67.88,
+    "overall_best_epoch_0_official_test_accuracy_pct": 65.20,
+    "best_trained_validation_accuracy_pct": 67.68,
+    "best_trained_epoch": 100,
+    "fixed_final_epoch_validation_accuracy_pct": 67.68,
+    "fixed_final_epoch_official_test_accuracy_pct": 66.48,
+    "fixed_final_checkpoint": "experiments/gmp_ablation/gmp_r8b_from_r7_20260914_231241/last.pt",
+    "fixed_final_evaluation_record": "experiments/gmp_ablation/gmp_r8b_from_r7_20260914_231241/final_epoch_evaluation.json",
+    "fixed_final_checkpoint_sha256": "6c0475a4ae072db99c288c6a7c12fdcc6a15d038c99c447cd467a0ea54d8bb62",
+    "delta_final_vs_comparable_gap_r8b_85_40_pp": -18.92,
+    "delta_final_vs_safe_gap_h2a_v2_85_03_pp": -18.55,
+    "official_test_protocol": "Two predeclared checkpoint roles evaluated only after training: overall validation selection (epoch 0) and fixed final trained epoch 100. Neither TEST result was used to select or modify weights.",
+    "comparison_limitation": "GMP used a 45k/5k TRAIN-derived holdout for model selection, whereas historical R8B GAP trained on all 50k TRAIN and selected epochs using TEST. The 85.40% comparison is an external reference, not a rerun matched-split GAP control. Phase B is R8B-level software, not a GMP H2 integer deployment."
+  },
+  "hardware": {
+    "gap_h2a_v2": {
+      "equation": "q_gap=sum_64(q_i); s_gap=s_stage3+6",
+      "input_bits_signed": 10,
+      "sum_accumulator_bits_signed": 16,
+      "runtime_divide_or_round": false,
+      "unit": "signed adder with accumulator register"
+    },
+    "gmp": {
+      "equation": "q_gmp=max_64(q_i); s_gmp=s_stage3",
+      "input_bits_signed": 10,
+      "output_bits_signed": 10,
+      "max_register_bits_signed": 10,
+      "width_growth_bits": 0,
+      "unit": "signed comparator with max register",
+      "operations_per_channel_after_first_load": 63
+    },
+    "sequential_one_input_per_cycle": "Both require 64 reads/channel and approximately 64 cycles including first load, subject to actual architecture/control; no RTL or synthesis performed",
+    "binary_convolution_exact_accumulator_bits": {
+      "stem_cin96": 11,
+      "cin16": 9,
+      "cin32": 10,
+      "cin64": 11
+    },
+    "no_area_power_frequency_claim": true
+  },
+  "complexity": {
+    "trainable_parameters": 284250,
+    "frozen_compatibility_alpha_parameters": 672,
+    "all_parameters": 284922,
+    "binary_convolution_terms_per_image": {
+      "stem": 14155776,
+      "backbone": 40108032,
+      "total": 54263808
+    },
+    "delta_parameters_vs_gap": 0,
+    "delta_binary_convolution_terms_vs_gap": 0
+  },
+  "verification": {
+    "full_unittest_count": 100,
+    "full_unittest_pass": true,
+    "gmp_specific_test_count": 8,
+    "h2a_v2_gap_baseline_reproduced_pct": 85.03,
+    "source_hashes_reverified_after_experiment": true
+  },
+  "decision": {
+    "accuracy_class_vs_comparable_gap": "Reject: 18.92 pp drop exceeds 0.50 pp threshold",
+    "pooling_datapath": "Simpler register width and scale metadata, but unmeasured area/power/timing",
+    "recommend_continue_gmp_h0_h1mp_h2": false,
+    "next_action": "Stop; do not port GMP to H0/H1/H2 without user direction"
+  }
+}

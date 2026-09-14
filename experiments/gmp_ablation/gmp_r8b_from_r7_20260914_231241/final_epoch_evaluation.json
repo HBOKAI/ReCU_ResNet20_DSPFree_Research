@@ -1,0 +1,13 @@
+{
+  "role": "fixed_final_trained_epoch_100",
+  "checkpoint": "experiments/gmp_ablation/gmp_r8b_from_r7_20260914_231241/last.pt",
+  "checkpoint_sha256": "6c0475a4ae072db99c288c6a7c12fdcc6a15d038c99c447cd467a0ea54d8bb62",
+  "epoch": 100,
+  "validation_accuracy_pct": 67.68,
+  "best_trained_validation_accuracy_pct": 67.68,
+  "official_cifar10_test_count": 10000,
+  "official_cifar10_test_accuracy_pct": 66.48,
+  "delta_vs_gap_r8b_85_40_pp": -18.92,
+  "delta_vs_gap_h2a_v2_85_03_pp": -18.55,
+  "selection_policy": "Epoch 100 fixed before test as the genuinely trained checkpoint; also the highest validation accuracy among epochs 1-100. No test-based weight or checkpoint selection."
+}

@@ -1,0 +1,121 @@
+{
+  "method": "GMP fine-tuned from GAP R7 source; signed-pow2 FC initialized per R8B",
+  "source_r7_checkpoint": "C:\\Users\\MCLAB\\OneDrive - 國立臺灣科技大學\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_r7\\recu_r7_r6_head_bn_pow2_20260912_220758\\best.pt",
+  "source_r7_best_acc": 85.22,
+  "source_r7_best_epoch": 99,
+  "initial_gap_gmp_state_equal": true,
+  "zero_epoch_gmp_validation_accuracy": 67.88,
+  "split": {
+    "source": "CIFAR-10 TRAIN only",
+    "seed": 123,
+    "train_count_full": 45000,
+    "validation_count_full": 5000,
+    "train_indices_sha256": "7ec56c8ee47c542d2504b1371f5eccb43fbc86d198b4afdfe6285f95cd057d54",
+    "validation_indices_sha256": "43ee1af52d467937faf32d993f4ef8e9b37b379268b38769d8568dbd5f919100",
+    "train_count_used": 45000,
+    "validation_count_used": 5000
+  },
+  "complexity": {
+    "trainable_parameters": 284250,
+    "frozen_parameters": 672,
+    "binary_conv_terms_per_image": {
+      "stem": 14155776,
+      "backbone": 40108032,
+      "total": 54263808
+    }
+  },
+  "frozen": {
+    "trainable_params": 284250,
+    "frozen_params": 672,
+    "frozen_parameter_names": [
+      "layer1.0.conv1.alpha",
+      "layer1.0.conv2.alpha",
+      "layer1.1.conv1.alpha",
+      "layer1.1.conv2.alpha",
+      "layer1.2.conv1.alpha",
+      "layer1.2.conv2.alpha",
+      "layer2.0.conv1.alpha",
+      "layer2.0.conv2.alpha",
+      "layer2.1.conv1.alpha",
+      "layer2.1.conv2.alpha",
+      "layer2.2.conv1.alpha",
+      "layer2.2.conv2.alpha",
+      "layer3.0.conv1.alpha",
+      "layer3.0.conv2.alpha",
+      "layer3.1.conv1.alpha",
+      "layer3.1.conv2.alpha",
+      "layer3.2.conv1.alpha",
+      "layer3.2.conv2.alpha"
+    ],
+    "frozen_parameter_categories": {
+      "r4_compatibility_alpha": 18
+    }
+  },
+  "initial_invariants": {
+    "stem": {
+      "effective_unique_values": [
+        -1.0,
+        1.0
+      ],
+      "positive": 6875,
+      "negative": 6949,
+      "is_strict_binary": true,
+      "conv_bias_is_none": true
+    },
+    "classifier": {
+      "weights": 640,
+      "positive": 238,
+      "negative": 402,
+      "min_exponent": -12,
+      "max_exponent": 0,
+      "exponent_bit_width_signed": 5,
+      "unique_exponents": [
+        -12,
+        -9,
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
+        -3,
+        -2,
+        -1,
+        0
+      ],
+      "exponent_histogram": {
+        "-12": 1,
+        "-9": 5,
+        "-8": 3,
+        "-7": 11,
+        "-6": 22,
+        "-5": 54,
+        "-4": 70,
+        "-3": 156,
+        "-2": 186,
+        "-1": 101,
+        "0": 31
+      },
+      "is_exact_signed_pow2": true,
+      "bias_present": true,
+      "weight_storage_bits": 3840,
+      "bias_storage_bits_fp32": 320,
+      "classifier_storage_bits_estimate": 4160
+    }
+  },
+  "recipe": {
+    "epochs": 100,
+    "batch_size": 128,
+    "validation_batch_size": 128,
+    "optimizer": "SGD",
+    "learning_rate": 0.0001,
+    "momentum": 0.9,
+    "weight_decay": 0.0,
+    "scheduler": "CosineAnnealingLR",
+    "T_max": 100,
+    "tau": 0.99,
+    "augmentation": "RandomCrop(32,padding=4), RandomHorizontalFlip, ToTensor; no Normalize",
+    "validation_source": "disjoint CIFAR-10 TRAIN-derived 5,000 images"
+  },
+  "comparable_gap_r8b_official_test_accuracy": 85.4,
+  "safe_gap_h2a_v2_official_test_accuracy": 85.03
+}

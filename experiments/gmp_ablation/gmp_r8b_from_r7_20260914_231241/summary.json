@@ -1,0 +1,80 @@
+{
+  "phase": "B_GMP_R8B_level_fine_tune_from_GAP_R7_source",
+  "run_dir": "C:\\Users\\MCLAB\\OneDrive - 國立臺灣科技大學\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\gmp_ablation\\gmp_r8b_from_r7_20260914_231241",
+  "method": "GMP fine-tuned from GAP R7 source; not scratch training",
+  "source_checkpoint": "C:\\Users\\MCLAB\\OneDrive - 國立臺灣科技大學\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_r7\\recu_r7_r6_head_bn_pow2_20260912_220758\\best.pt",
+  "seed": 123,
+  "epochs": 100,
+  "train_count": 45000,
+  "validation_count": 5000,
+  "zero_epoch_validation_accuracy": 67.88,
+  "best_validation_accuracy": 67.88,
+  "best_epoch": 0,
+  "final_epoch_validation_accuracy": 67.68,
+  "best_validation_reload_accuracy": 67.88,
+  "official_test_accuracy": 65.2,
+  "official_test_count": 10000,
+  "delta_vs_comparable_gap_r8b_85_40_pp": -20.200000000000003,
+  "delta_vs_safe_gap_h2a_v2_85_03_pp": -19.83,
+  "complexity": {
+    "trainable_parameters": 284250,
+    "frozen_parameters": 672,
+    "binary_conv_terms_per_image": {
+      "stem": 14155776,
+      "backbone": 40108032,
+      "total": 54263808
+    }
+  },
+  "classifier": {
+    "weights": 640,
+    "positive": 238,
+    "negative": 402,
+    "min_exponent": -12,
+    "max_exponent": 0,
+    "exponent_bit_width_signed": 5,
+    "unique_exponents": [
+      -12,
+      -9,
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1,
+      0
+    ],
+    "exponent_histogram": {
+      "-12": 1,
+      "-9": 5,
+      "-8": 3,
+      "-7": 11,
+      "-6": 22,
+      "-5": 54,
+      "-4": 70,
+      "-3": 156,
+      "-2": 186,
+      "-1": 101,
+      "0": 31
+    },
+    "is_exact_signed_pow2": true,
+    "bias_present": true,
+    "weight_storage_bits": 3840,
+    "bias_storage_bits_fp32": 320,
+    "classifier_storage_bits_estimate": 4160
+  },
+  "stem": {
+    "effective_unique_values": [
+      -1.0,
+      1.0
+    ],
+    "positive": 6875,
+    "negative": 6949,
+    "is_strict_binary": true,
+    "conv_bias_is_none": true
+  },
+  "initial_gap_gmp_state_equal": true,
+  "elapsed_this_process_s": 1564.9824359416962,
+  "git_commit": "34f8a86df2df0654ac2af56fdbd1189d4689af83"
+}

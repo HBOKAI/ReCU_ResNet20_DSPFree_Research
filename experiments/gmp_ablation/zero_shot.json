@@ -1,0 +1,381 @@
+{
+  "phase": "A_zero_shot_direct_replacement",
+  "official_test": true,
+  "source_checkpoint": "C:\\Users\\MCLAB\\OneDrive - 國立臺灣科技大學\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_r8b\\recu_r8b_r7_pow2_fc_20260912_225827\\best.pt",
+  "source_checkpoint_sha256": "c07ec3b29b88bbf70d3300f0bb19c7113abdadd305eb3d73cc12c7f40c2b0ba8",
+  "h0_results_sha256": "b608bc9d5325ee9cfa79802c3d8bf4904365c8bf49ac4ad82235357e57465ac3",
+  "h1mp_results_sha256": "83da34d5c4f77643c2e9b2f69d6a8f478f70b2eb8673bbb37457d5e59efda82d",
+  "h2a_v2_results_sha256": "13e7889628432bcdf2b3419503492e72c7604ba858993b4b9008746aec857f12",
+  "source_model_state_sha256_before": "31bf22e34658d733933a9222bb34ce7d2b895315748c948075ff4fb90a275da1",
+  "source_model_state_sha256_after": "31bf22e34658d733933a9222bb34ce7d2b895315748c948075ff4fb90a275da1",
+  "same_weights": true,
+  "device": "cuda",
+  "samples": 10000,
+  "gap_accuracy": 85.03,
+  "gmp_zero_shot_accuracy": 23.95,
+  "delta_vs_gap_pp": -61.08,
+  "prediction_mismatch_count": 7665,
+  "absolute_logit_difference": {
+    "count": 100000,
+    "min": 0.0,
+    "max": 33.34375,
+    "mean": 7.636649516601563,
+    "std": 5.360620692371703
+  },
+  "stage3_input_q": {
+    "count": 40960000,
+    "min": -1.0,
+    "max": 504.0,
+    "mean": 17.600370654296874,
+    "std": 30.41856594338511,
+    "bits": 10,
+    "shift": 6
+  },
+  "gap_head_input_real": {
+    "count": 640000,
+    "min": 0.0,
+    "max": 2.321044921875,
+    "mean": 0.27500579147338866,
+    "std": 0.18403619890319023
+  },
+  "gmp_head_input_real": {
+    "count": 640000,
+    "min": 0.0,
+    "max": 7.875,
+    "mean": 1.7916356201171875,
+    "std": 1.1125460256565705
+  },
+  "gmp_output_q": {
+    "count": 640000,
+    "min": 0.0,
+    "max": 504.0,
+    "mean": 114.6646796875,
+    "std": 71.20294564202051,
+    "bits": 10,
+    "shift": 6,
+    "histogram_nonzero_bins": [
+      {
+        "q": 0,
+        "count": 2
+      },
+      {
+        "q": 1,
+        "count": 5
+      },
+      {
+        "q": 3,
+        "count": 473
+      },
+      {
+        "q": 4,
+        "count": 1811
+      },
+      {
+        "q": 5,
+        "count": 1012
+      },
+      {
+        "q": 6,
+        "count": 745
+      },
+      {
+        "q": 7,
+        "count": 1899
+      },
+      {
+        "q": 8,
+        "count": 7970
+      },
+      {
+        "q": 9,
+        "count": 1145
+      },
+      {
+        "q": 10,
+        "count": 4196
+      },
+      {
+        "q": 11,
+        "count": 13
+      },
+      {
+        "q": 12,
+        "count": 3797
+      },
+      {
+        "q": 13,
+        "count": 1122
+      },
+      {
+        "q": 14,
+        "count": 956
+      },
+      {
+        "q": 15,
+        "count": 1086
+      },
+      {
+        "q": 16,
+        "count": 11794
+      },
+      {
+        "q": 24,
+        "count": 15551
+      },
+      {
+        "q": 32,
+        "count": 19266
+      },
+      {
+        "q": 40,
+        "count": 23359
+      },
+      {
+        "q": 48,
+        "count": 26697
+      },
+      {
+        "q": 56,
+        "count": 29894
+      },
+      {
+        "q": 64,
+        "count": 31481
+      },
+      {
+        "q": 72,
+        "count": 32743
+      },
+      {
+        "q": 80,
+        "count": 32486
+      },
+      {
+        "q": 88,
+        "count": 32166
+      },
+      {
+        "q": 96,
+        "count": 30957
+      },
+      {
+        "q": 104,
+        "count": 29275
+      },
+      {
+        "q": 112,
+        "count": 27584
+      },
+      {
+        "q": 120,
+        "count": 25759
+      },
+      {
+        "q": 128,
+        "count": 23939
+      },
+      {
+        "q": 136,
+        "count": 21647
+      },
+      {
+        "q": 144,
+        "count": 20092
+      },
+      {
+        "q": 152,
+        "count": 18584
+      },
+      {
+        "q": 160,
+        "count": 16711
+      },
+      {
+        "q": 168,
+        "count": 15315
+      },
+      {
+        "q": 176,
+        "count": 14195
+      },
+      {
+        "q": 184,
+        "count": 12888
+      },
+      {
+        "q": 192,
+        "count": 11977
+      },
+      {
+        "q": 200,
+        "count": 10963
+      },
+      {
+        "q": 208,
+        "count": 10023
+      },
+      {
+        "q": 216,
+        "count": 9151
+      },
+      {
+        "q": 224,
+        "count": 8434
+      },
+      {
+        "q": 232,
+        "count": 7543
+      },
+      {
+        "q": 240,
+        "count": 6640
+      },
+      {
+        "q": 248,
+        "count": 5664
+      },
+      {
+        "q": 256,
+        "count": 5165
+      },
+      {
+        "q": 264,
+        "count": 4439
+      },
+      {
+        "q": 272,
+        "count": 3864
+      },
+      {
+        "q": 280,
+        "count": 3134
+      },
+      {
+        "q": 288,
+        "count": 2618
+      },
+      {
+        "q": 296,
+        "count": 2181
+      },
+      {
+        "q": 304,
+        "count": 1875
+      },
+      {
+        "q": 312,
+        "count": 1451
+      },
+      {
+        "q": 320,
+        "count": 1180
+      },
+      {
+        "q": 328,
+        "count": 906
+      },
+      {
+        "q": 336,
+        "count": 803
+      },
+      {
+        "q": 344,
+        "count": 687
+      },
+      {
+        "q": 352,
+        "count": 529
+      },
+      {
+        "q": 360,
+        "count": 448
+      },
+      {
+        "q": 368,
+        "count": 368
+      },
+      {
+        "q": 376,
+        "count": 305
+      },
+      {
+        "q": 384,
+        "count": 215
+      },
+      {
+        "q": 392,
+        "count": 192
+      },
+      {
+        "q": 400,
+        "count": 149
+      },
+      {
+        "q": 408,
+        "count": 123
+      },
+      {
+        "q": 416,
+        "count": 87
+      },
+      {
+        "q": 424,
+        "count": 69
+      },
+      {
+        "q": 432,
+        "count": 52
+      },
+      {
+        "q": 440,
+        "count": 48
+      },
+      {
+        "q": 448,
+        "count": 38
+      },
+      {
+        "q": 456,
+        "count": 15
+      },
+      {
+        "q": 464,
+        "count": 16
+      },
+      {
+        "q": 472,
+        "count": 14
+      },
+      {
+        "q": 480,
+        "count": 9
+      },
+      {
+        "q": 488,
+        "count": 4
+      },
+      {
+        "q": 496,
+        "count": 5
+      },
+      {
+        "q": 504,
+        "count": 1
+      }
+    ]
+  },
+  "gmp_max_register_bits": 10,
+  "gmp_saturation_count": 0,
+  "gap_h2_overflow_total": 0,
+  "gmp_h2_overflow_total": 0,
+  "complexity": {
+    "trainable_parameters": 284250,
+    "frozen_parameters": 672,
+    "binary_conv_terms_per_image": {
+      "stem": 14155776,
+      "backbone": 40108032,
+      "total": 54263808
+    }
+  },
+  "note": "GMP zero-shot is direct replacement in the GAP-trained H2A-v2 model, not a trained GMP architecture result."
+}
