@@ -1,0 +1,41 @@
+{
+  "experiment": {
+    "name": "recu_r6_r5tlong_stem_bn_pow2",
+    "seed": 123
+  },
+  "dataset": {
+    "name": "cifar10",
+    "root": "./data",
+    "download": true
+  },
+  "model": {
+    "resolution": 8,
+    "stem_weight_bits": 1,
+    "stem_activation_bits": 1,
+    "stem_affine_k": "signed_power_of_two",
+    "stem_affine_b": "float_reference",
+    "min_exp": null,
+    "max_exp": null
+  },
+  "training": {
+    "batch_size": 128,
+    "test_batch_size": 128,
+    "num_workers": 8,
+    "windows_safe_smoke": true
+  },
+  "verification": {
+    "fold_tolerance": 1e-05,
+    "max_fold_batches": 8
+  },
+  "finetune": {
+    "epochs": 100,
+    "lr": 0.001,
+    "momentum": 0.9,
+    "weight_decay": 0.0,
+    "scheduler": "cosine",
+    "tau": 0.99
+  },
+  "output": {
+    "root": "experiments/recu_r6"
+  }
+}

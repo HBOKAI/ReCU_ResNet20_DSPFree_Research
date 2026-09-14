@@ -1,0 +1,36 @@
+{
+  "experiment": {"name": "recu_r5t_thermometer_r8", "seed": 123},
+  "dataset": {"name": "cifar10", "root": "./data", "download": true},
+  "thermometer": {
+    "resolution": 8,
+    "expected_length_per_rgb": 32,
+    "expected_input_channels": 96,
+    "cifar_normalize_std_reference": [0.2470, 0.2435, 0.2616]
+  },
+  "training": {
+    "batch_size": 128,
+    "test_batch_size": 128,
+    "num_workers": 8,
+    "windows_safe_smoke": true
+  },
+  "stage_t1": {
+    "epochs": 100,
+    "lr": 0.001,
+    "momentum": 0.9,
+    "weight_decay": 0.00001,
+    "scheduler": "linear_to_zero",
+    "stem_weight": "float",
+    "thermometer_activation": "binary"
+  },
+  "stage_t2": {
+    "epochs": 100,
+    "lr": 0.001,
+    "momentum": 0.9,
+    "weight_decay": 0.0,
+    "scheduler": "linear_to_zero",
+    "stem_weight": "binary_sign",
+    "thermometer_activation": "binary"
+  },
+  "recu_tau": 0.99,
+  "output": {"root": "experiments/recu_r5t"}
+}

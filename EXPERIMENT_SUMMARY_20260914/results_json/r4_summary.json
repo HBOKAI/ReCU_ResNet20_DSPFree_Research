@@ -1,0 +1,36 @@
+{
+  "source_r2_checkpoint": "C:\\Users\\MCLAB\\OneDrive - 國立臺灣科技大學\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_r2_warmstart_qrprelu\\recu_r2_warmstart_qrprelu_20260912_094409\\best.pt",
+  "source_r2_best_acc": 86.72,
+  "source_r2_best_epoch": 97,
+  "initial_converted_test_acc": 70.11,
+  "best_test_acc": 86.11,
+  "best_epoch": 98,
+  "reload_test_acc": 86.11,
+  "final_test_acc": 85.76,
+  "elapsed_s": 1617.6581099033356,
+  "trainable_params": 270858,
+  "final_exponents": {
+    "count": 672,
+    "histogram": {
+      "-7": 11,
+      "-6": 452,
+      "-5": 209
+    },
+    "min": -7,
+    "max": -5
+  },
+  "final_k_quantization": {
+    "count": 672,
+    "float_k_min": -0.03053794614970684,
+    "float_k_max": 0.04064546152949333,
+    "float_abs_k_mean": 0.020001014694571495,
+    "float_abs_k_median": 0.019447103142738342,
+    "negative_k_count": 4,
+    "positive_k_count": 668,
+    "mean_abs_error": 0.0036903659347444773,
+    "max_abs_error": 0.009395461529493332,
+    "mean_relative_error": 0.17925825715065002,
+    "max_relative_error": 0.41418319940567017
+  },
+  "git_commit": ""
+}

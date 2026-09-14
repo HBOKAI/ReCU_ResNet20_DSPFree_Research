@@ -1,0 +1,20 @@
+﻿stage,accuracy,delta_from_previous_selected,delta_from_R8B,selected_or_not,reason
+Official ReCU,87.28,,1.88,selected,official reproduced reference
+R1,87.02,-0.26,1.62,not selected,alpha removal needs fine-tune; ablation
+R2,86.72,-0.56,1.32,selected,warm QRPReLU source for R4
+R3,85.5,-1.22,0.1,not selected,separate affine ablation
+R4,86.11,-0.61,0.71,selected,multiplier-free backbone
+R5,83.77,-2.34,-1.63,not selected,3-channel W1A8 below threshold
+R5AB,83.96,-2.15,-1.44,not selected,small recovery; below threshold
+R5T,85.0,-1.11,-0.4,selected,thermometer W1A1 stem
+R5T-Long,85.14,0.14,-0.26,selected,source for R6
+R6,85.52,0.38,0.12,selected,stem BN removed
+R7,85.22,-0.3,-0.18,selected,head BN removed
+R8A,82.84,-2.38,-2.56,not selected,binary FC accuracy loss
+R8B,85.4,0.18,0.0,selected,selected software model
+H0 INT6,85.13,-0.27,-0.27,selected,production integer bias
+H1 uniform INT8,77.07,-8.06,-8.33,not selected,uniform precision failed
+H1-MP,85.03,-0.1,-0.37,selected,58-node mixed precision
+H2A,84.92,-0.11,-0.48,not selected,rounded GAP caused >0.10 pp loss; source artifact missing
+H2A-v2,85.03,0.0,-0.37,selected,safe zero-loss profile
+H2B,84.93,-0.1,-0.47,not selected,aggressive alternative; does not replace safe

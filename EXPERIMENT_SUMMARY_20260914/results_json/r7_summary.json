@@ -1,0 +1,107 @@
+{
+  "source_acc": 85.52,
+  "exact_head_fold_max_abs_error": 1.430511474609375e-06,
+  "zero_epoch_hard_projection_acc": 75.8,
+  "delta_zero_epoch_vs_source_pp": -9.719999999999999,
+  "best_acc": 85.22,
+  "best_epoch": 99,
+  "final_acc": 85.2,
+  "reload_acc": 85.22,
+  "delta_best_vs_source_pp": -0.29999999999999716,
+  "elapsed_s": 2325.6604039669037,
+  "head_affine": {
+    "channels": 64,
+    "latent_k_min": 2.191786050796509,
+    "latent_k_max": 33.48271179199219,
+    "latent_k_abs_min": 2.191786050796509,
+    "latent_k_abs_max": 33.48271179199219,
+    "latent_k_abs_mean": 14.035774230957031,
+    "quant_k_min": 2.0,
+    "quant_k_max": 32.0,
+    "negative_k_count": 0,
+    "positive_k_count": 64,
+    "unique_exponents": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "exponent_histogram": {
+      "1": 2,
+      "2": 4,
+      "3": 19,
+      "4": 30,
+      "5": 9
+    },
+    "bias_min": -7.448306560516357,
+    "bias_max": -1.1498034000396729,
+    "bias_mean": -3.0875351428985596,
+    "is_exact_signed_pow2": true
+  },
+  "stem_affine": {
+    "channels": 16,
+    "latent_k_min": 0.022096779197454453,
+    "latent_k_max": 0.044230516999959946,
+    "latent_k_abs_min": 0.022096779197454453,
+    "latent_k_abs_max": 0.044230516999959946,
+    "latent_k_abs_mean": 0.034531183540821075,
+    "quant_k_min": 0.015625,
+    "quant_k_max": 0.0625,
+    "negative_k_count": 0,
+    "positive_k_count": 16,
+    "unique_exponents": [
+      -6,
+      -5,
+      -4
+    ],
+    "exponent_histogram": {
+      "-6": 3,
+      "-5": 7,
+      "-4": 6
+    },
+    "bias_min": -0.4202865660190582,
+    "bias_max": 0.19120754301548004,
+    "bias_mean": -0.07926486432552338,
+    "is_exact_signed_pow2": true
+  },
+  "stem_binary": {
+    "effective_unique_values": [
+      -1.0,
+      1.0
+    ],
+    "positive": 6875,
+    "negative": 6949,
+    "is_strict_binary": true,
+    "conv_bias_is_none": true
+  },
+  "trainable_params": 284250,
+  "frozen_params": 672,
+  "frozen_parameter_categories": {
+    "r4_compatibility_alpha": 18
+  },
+  "frozen_parameter_names": [
+    "layer1.0.conv1.alpha",
+    "layer1.0.conv2.alpha",
+    "layer1.1.conv1.alpha",
+    "layer1.1.conv2.alpha",
+    "layer1.2.conv1.alpha",
+    "layer1.2.conv2.alpha",
+    "layer2.0.conv1.alpha",
+    "layer2.0.conv2.alpha",
+    "layer2.1.conv1.alpha",
+    "layer2.1.conv2.alpha",
+    "layer2.2.conv1.alpha",
+    "layer2.2.conv2.alpha",
+    "layer3.0.conv1.alpha",
+    "layer3.0.conv2.alpha",
+    "layer3.1.conv1.alpha",
+    "layer3.1.conv2.alpha",
+    "layer3.2.conv1.alpha",
+    "layer3.2.conv2.alpha"
+  ],
+  "bn2_removed": true,
+  "linear_bias_present": true,
+  "effective_lr": 0.0001,
+  "git_commit": ""
+}

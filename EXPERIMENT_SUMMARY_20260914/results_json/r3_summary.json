@@ -1,0 +1,39 @@
+{
+  "mode": "r3",
+  "source_checkpoint": "C:\\Users\\MCLAB\\OneDrive - 國立臺灣科技大學\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_runs\\recu_resnet20_official_repro_s123_20260911_234802\\best.pt",
+  "initial_converted_test_acc": 73.34,
+  "best_test_acc": 85.5,
+  "best_epoch": 100,
+  "reload_test_acc": 85.5,
+  "final_test_acc": 85.5,
+  "elapsed_s": 2408.744712114334,
+  "trainable_params": 270186,
+  "conversion": {
+    "initial_fused_exponents": {
+      "count": 672,
+      "histogram": {
+        "-13": 1,
+        "-9": 6,
+        "-8": 262,
+        "-7": 380,
+        "-6": 22,
+        "-5": 1
+      },
+      "min": -13,
+      "max": -5
+    }
+  },
+  "git_commit": "",
+  "final_fused_exponents": {
+    "count": 672,
+    "histogram": {
+      "-8": 1,
+      "-6": 1,
+      "-5": 359,
+      "-4": 310,
+      "-3": 1
+    },
+    "min": -8,
+    "max": -3
+  }
+}

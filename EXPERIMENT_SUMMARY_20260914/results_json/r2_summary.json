@@ -1,0 +1,15 @@
+{
+  "mode": "r2",
+  "source_checkpoint": "C:\\Users\\MCLAB\\OneDrive - 國立臺灣科技大學\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_runs\\recu_resnet20_official_repro_s123_20260911_234802\\best.pt",
+  "initial_converted_test_acc": 11.86,
+  "best_test_acc": 86.72,
+  "best_epoch": 97,
+  "reload_test_acc": 86.72,
+  "final_test_acc": 86.3,
+  "elapsed_s": 2404.7151634693146,
+  "trainable_params": 271530,
+  "conversion": {
+    "nonpositive_prelu_slopes_clamped": 89
+  },
+  "git_commit": ""
+}

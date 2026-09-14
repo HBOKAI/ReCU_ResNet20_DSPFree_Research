@@ -1,0 +1,25 @@
+{
+  "source_r4_best_acc": 86.11,
+  "source_r4_best_epoch": 98,
+  "resolution": 8,
+  "thermometer_input_channels": 96,
+  "projected_fp_stem_zero_epoch_acc": 84.66,
+  "binary_stem_zero_epoch_acc": 20.02,
+  "stages": {
+    "t2": {
+      "best_acc": 85.0,
+      "best_epoch": 97,
+      "reload_acc": 85.0,
+      "elapsed_s": 1866.7846510410309,
+      "best_path": "experiments\\recu_r5t\\recu_r5t_thermometer_r8_20260912_150935\\t2_best.pt"
+    }
+  },
+  "stem_binary_weight": true,
+  "stem_sign_stats": {
+    "positive": 6820,
+    "negative": 7004,
+    "zero_latent": 0
+  },
+  "trainable_params": 284250,
+  "git_commit": ""
+}

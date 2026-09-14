@@ -1,0 +1,38 @@
+{
+  "experiment": {
+    "name": "recu_r5ab_progressive_scaled_w1a8",
+    "seed": 123
+  },
+  "dataset": {
+    "name": "cifar10",
+    "root": "./data",
+    "download": true,
+    "protocol": "official_recu_train_test"
+  },
+  "model": {
+    "stem_weight_bits": 1,
+    "stem_activation_bits": 8,
+    "stem_binary_scale": "per_output_filter_mean_abs",
+    "input_quantizer": "pow2_symmetric_signed_int8",
+    "input_scale_exp": -5,
+    "calibration_batches": 16
+  },
+  "training": {
+    "batch_size": 256,
+    "test_batch_size": 128,
+    "num_workers": 8,
+    "windows_safe_smoke": true
+  },
+  "finetune": {
+    "epochs": 100,
+    "ramp_epochs": 30,
+    "lr": 0.005,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "tau": 0.99,
+    "scheduler": "cosine"
+  },
+  "output": {
+    "root": "experiments/recu_r5ab"
+  }
+}

@@ -1,0 +1,13 @@
+# Preserve datasets, checkpoints, and historical experiment directories on
+# disk without adding them to the new local source-control baseline.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.pt
+*.pth
+*.zip
+/data/
+/logs/
+/experiments/*
+!/experiments/gmp_ablation/
+/ReCU_*_Pack/

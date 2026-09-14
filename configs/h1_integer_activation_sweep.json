@@ -1,0 +1,51 @@
+{
+  "source": {
+    "model": "R8B-H0",
+    "expected_accuracy": 85.13,
+    "bias_width": 6,
+    "baseline_tolerance_pp": 0.08
+  },
+  "widths": [
+    8,
+    7,
+    6,
+    5,
+    4
+  ],
+  "optional_int3_if_int4_drop_le_pp": 0.5,
+  "calibration": {
+    "source": "cifar10_train",
+    "use_test_for_calibration": false,
+    "max_samples": 10000
+  },
+  "shift_policy": {
+    "min_shift": -16,
+    "max_shift": 24,
+    "name": "largest_zero_saturation_shift_from_calibration_absmax"
+  },
+  "do_not_quantize": [
+    "binary_conv_accumulators",
+    "gap_accumulator"
+  ],
+  "thresholds_pp": {
+    "near_lossless": 0.1,
+    "recommended": 0.3,
+    "absolute_minimum": 0.5
+  },
+  "dataset": {
+    "name": "cifar10",
+    "root": "./data",
+    "download": true
+  },
+  "training": {
+    "batch_size": 128,
+    "test_batch_size": 128,
+    "num_workers": 0,
+    "windows_safe_smoke": true
+  },
+  "output": {
+    "root": ".",
+    "results": "H1_INTEGER_ACTIVATION_SWEEP_RESULTS.json",
+    "report": "H1_INTEGER_ACTIVATION_RESIDUAL_REPORT.md"
+  }
+}

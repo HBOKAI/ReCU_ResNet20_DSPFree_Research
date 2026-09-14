@@ -1,0 +1,2320 @@
+{
+  "status": "COMPLETE",
+  "source": {
+    "r8b_checkpoint": "C:\\Users\\MCLAB\\OneDrive - \u570b\u7acb\u81fa\u7063\u79d1\u6280\u5927\u5b78\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_r8b\\recu_r8b_r7_pow2_fc_20260912_225827\\best.pt",
+    "source_summary": "C:\\Users\\MCLAB\\OneDrive - \u570b\u7acb\u81fa\u7063\u79d1\u6280\u5927\u5b78\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_r8b\\recu_r8b_r7_pow2_fc_20260912_225827\\summary.json",
+    "candidate_formal_summaries": [
+      "C:\\Users\\MCLAB\\OneDrive - \u570b\u7acb\u81fa\u7063\u79d1\u6280\u5927\u5b78\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_r8b\\recu_r8b_r7_pow2_fc_20260912_225827\\summary.json"
+    ],
+    "r8b_stored_best_acc": 85.4,
+    "r8b_stored_best_epoch": 100,
+    "h0_results_json": "C:\\Users\\MCLAB\\OneDrive - \u570b\u7acb\u81fa\u7063\u79d1\u6280\u5927\u5b78\\ForLab\\ReCU_ResNet20_DSPFree_Research\\H0_INTEGER_BIAS_SWEEP_RESULTS.json",
+    "h0_test_baseline_accuracy": 85.13,
+    "search_validation_baseline_accuracy": 89.34
+  },
+  "data": {
+    "calibration_source": "CIFAR-10 TRAIN only",
+    "calibration_samples": 10000,
+    "search_validation_source": "non-overlapping CIFAR-10 TRAIN subset",
+    "search_validation_samples": 10000,
+    "split_seed": 20260913,
+    "official_test_used_for_search": false
+  },
+  "quant_node_count": 58,
+  "quant_nodes": [
+    {
+      "name": "stem.post_hardtanh",
+      "role": "stem affine + Hardtanh output passed to the first R4 block",
+      "tensor_role": "stem_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.0.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.0.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.0.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.0.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.0.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.0.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.1.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.1.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.1.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.1.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.1.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.1.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.2.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.2.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.2.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.2.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.2.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer1.2.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.0.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.0.stage_shortcut",
+      "role": "Option-A stage-transition shortcut output before the first residual add",
+      "tensor_role": "stage_transition_shortcut",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.0.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.0.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.0.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.0.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.0.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.1.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.1.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.1.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.1.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.1.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.1.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.2.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.2.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.2.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.2.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.2.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer2.2.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.0.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.0.stage_shortcut",
+      "role": "Option-A stage-transition shortcut output before the first residual add",
+      "tensor_role": "stage_transition_shortcut",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.0.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.0.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.0.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.0.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.0.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.1.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.1.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.1.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.1.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.1.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.1.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.2.first_affine",
+      "role": "first BConv + fused affine branch before the first residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.2.x1",
+      "role": "first residual-add output saved as x1",
+      "tensor_role": "first_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.2.pre_bconv2_hardtanh",
+      "role": "Hardtanh(x1) magnitude state feeding the second BConv",
+      "tensor_role": "pre_second_bconv_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.2.second_affine",
+      "role": "second BConv + fused affine branch before the second residual add",
+      "tensor_role": "residual_branch_a",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.2.second_add",
+      "role": "second residual-add output before QRPReLU",
+      "tensor_role": "second_residual_add_output",
+      "is_accumulator": false
+    },
+    {
+      "name": "layer3.2.qrprelu_output",
+      "role": "QRPReLU output and block output state",
+      "tensor_role": "block_output_state",
+      "is_accumulator": false
+    },
+    {
+      "name": "head.affine_output",
+      "role": "head signed-pow2 affine output and final FC input",
+      "tensor_role": "head_fc_input",
+      "is_accumulator": false
+    }
+  ],
+  "calibration_ranges": {
+    "stem.post_hardtanh": {
+      "name": "stem.post_hardtanh",
+      "count_seen": 163840000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer1.0.first_affine": {
+      "name": "layer1.0.first_affine",
+      "count_seen": 163840000,
+      "min_value": -2.21875,
+      "max_value": 2.34375,
+      "absmax": 2.34375,
+      "sample_count": 65536
+    },
+    "layer1.0.x1": {
+      "name": "layer1.0.x1",
+      "count_seen": 163840000,
+      "min_value": -3.21875,
+      "max_value": 3.34375,
+      "absmax": 3.34375,
+      "sample_count": 65536
+    },
+    "layer1.0.pre_bconv2_hardtanh": {
+      "name": "layer1.0.pre_bconv2_hardtanh",
+      "count_seen": 163840000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer1.0.second_affine": {
+      "name": "layer1.0.second_affine",
+      "count_seen": 163840000,
+      "min_value": -3.28125,
+      "max_value": 2.8125,
+      "absmax": 3.28125,
+      "sample_count": 65536
+    },
+    "layer1.0.second_add": {
+      "name": "layer1.0.second_add",
+      "count_seen": 163840000,
+      "min_value": -4.53125,
+      "max_value": 5.40625,
+      "absmax": 5.40625,
+      "sample_count": 65536
+    },
+    "layer1.0.qrprelu_output": {
+      "name": "layer1.0.qrprelu_output",
+      "count_seen": 163840000,
+      "min_value": -3.5811781883239746,
+      "max_value": 5.40625,
+      "absmax": 5.40625,
+      "sample_count": 65536
+    },
+    "layer1.1.first_affine": {
+      "name": "layer1.1.first_affine",
+      "count_seen": 163840000,
+      "min_value": -2.4375,
+      "max_value": 2.78125,
+      "absmax": 2.78125,
+      "sample_count": 65536
+    },
+    "layer1.1.x1": {
+      "name": "layer1.1.x1",
+      "count_seen": 163840000,
+      "min_value": -4.480339527130127,
+      "max_value": 5.625,
+      "absmax": 5.625,
+      "sample_count": 65536
+    },
+    "layer1.1.pre_bconv2_hardtanh": {
+      "name": "layer1.1.pre_bconv2_hardtanh",
+      "count_seen": 163840000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer1.1.second_affine": {
+      "name": "layer1.1.second_affine",
+      "count_seen": 163840000,
+      "min_value": -3.90625,
+      "max_value": 2.625,
+      "absmax": 3.90625,
+      "sample_count": 65536
+    },
+    "layer1.1.second_add": {
+      "name": "layer1.1.second_add",
+      "count_seen": 163840000,
+      "min_value": -6.660615921020508,
+      "max_value": 6.625,
+      "absmax": 6.660615921020508,
+      "sample_count": 65536
+    },
+    "layer1.1.qrprelu_output": {
+      "name": "layer1.1.qrprelu_output",
+      "count_seen": 163840000,
+      "min_value": -6.353877544403076,
+      "max_value": 6.625,
+      "absmax": 6.625,
+      "sample_count": 65536
+    },
+    "layer1.2.first_affine": {
+      "name": "layer1.2.first_affine",
+      "count_seen": 163840000,
+      "min_value": -2.75,
+      "max_value": 1.921875,
+      "absmax": 2.75,
+      "sample_count": 65536
+    },
+    "layer1.2.x1": {
+      "name": "layer1.2.x1",
+      "count_seen": 163840000,
+      "min_value": -8.385128021240234,
+      "max_value": 7.1875,
+      "absmax": 8.385128021240234,
+      "sample_count": 65536
+    },
+    "layer1.2.pre_bconv2_hardtanh": {
+      "name": "layer1.2.pre_bconv2_hardtanh",
+      "count_seen": 163840000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer1.2.second_affine": {
+      "name": "layer1.2.second_affine",
+      "count_seen": 163840000,
+      "min_value": -3.8125,
+      "max_value": 1.9375,
+      "absmax": 3.8125,
+      "sample_count": 65536
+    },
+    "layer1.2.second_add": {
+      "name": "layer1.2.second_add",
+      "count_seen": 163840000,
+      "min_value": -9.994503021240234,
+      "max_value": 6.125,
+      "absmax": 9.994503021240234,
+      "sample_count": 65536
+    },
+    "layer1.2.qrprelu_output": {
+      "name": "layer1.2.qrprelu_output",
+      "count_seen": 163840000,
+      "min_value": -3.7923569679260254,
+      "max_value": 6.125,
+      "absmax": 6.125,
+      "sample_count": 65536
+    },
+    "layer2.0.first_affine": {
+      "name": "layer2.0.first_affine",
+      "count_seen": 81920000,
+      "min_value": -2.65625,
+      "max_value": 3.1875,
+      "absmax": 3.1875,
+      "sample_count": 65536
+    },
+    "layer2.0.stage_shortcut": {
+      "name": "layer2.0.stage_shortcut",
+      "count_seen": 81920000,
+      "min_value": -3.7923569679260254,
+      "max_value": 6.125,
+      "absmax": 6.125,
+      "sample_count": 65536
+    },
+    "layer2.0.x1": {
+      "name": "layer2.0.x1",
+      "count_seen": 81920000,
+      "min_value": -3.17520809173584,
+      "max_value": 7.0625,
+      "absmax": 7.0625,
+      "sample_count": 65536
+    },
+    "layer2.0.pre_bconv2_hardtanh": {
+      "name": "layer2.0.pre_bconv2_hardtanh",
+      "count_seen": 81920000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer2.0.second_affine": {
+      "name": "layer2.0.second_affine",
+      "count_seen": 81920000,
+      "min_value": -5.15625,
+      "max_value": 3.5625,
+      "absmax": 5.15625,
+      "sample_count": 65536
+    },
+    "layer2.0.second_add": {
+      "name": "layer2.0.second_add",
+      "count_seen": 81920000,
+      "min_value": -6.776393890380859,
+      "max_value": 8.03125,
+      "absmax": 8.03125,
+      "sample_count": 65536
+    },
+    "layer2.0.qrprelu_output": {
+      "name": "layer2.0.qrprelu_output",
+      "count_seen": 81920000,
+      "min_value": -5.857804298400879,
+      "max_value": 8.03125,
+      "absmax": 8.03125,
+      "sample_count": 65536
+    },
+    "layer2.1.first_affine": {
+      "name": "layer2.1.first_affine",
+      "count_seen": 81920000,
+      "min_value": -2.6875,
+      "max_value": 3.34375,
+      "absmax": 3.34375,
+      "sample_count": 65536
+    },
+    "layer2.1.x1": {
+      "name": "layer2.1.x1",
+      "count_seen": 81920000,
+      "min_value": -6.889054298400879,
+      "max_value": 8.359375,
+      "absmax": 8.359375,
+      "sample_count": 65536
+    },
+    "layer2.1.pre_bconv2_hardtanh": {
+      "name": "layer2.1.pre_bconv2_hardtanh",
+      "count_seen": 81920000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer2.1.second_affine": {
+      "name": "layer2.1.second_affine",
+      "count_seen": 81920000,
+      "min_value": -4.25,
+      "max_value": 2.5625,
+      "absmax": 4.25,
+      "sample_count": 65536
+    },
+    "layer2.1.second_add": {
+      "name": "layer2.1.second_add",
+      "count_seen": 81920000,
+      "min_value": -8.607804298400879,
+      "max_value": 7.875,
+      "absmax": 8.607804298400879,
+      "sample_count": 65536
+    },
+    "layer2.1.qrprelu_output": {
+      "name": "layer2.1.qrprelu_output",
+      "count_seen": 81920000,
+      "min_value": -4.554277420043945,
+      "max_value": 7.875,
+      "absmax": 7.875,
+      "sample_count": 65536
+    },
+    "layer2.2.first_affine": {
+      "name": "layer2.2.first_affine",
+      "count_seen": 81920000,
+      "min_value": -3.90625,
+      "max_value": 2.40625,
+      "absmax": 3.90625,
+      "sample_count": 65536
+    },
+    "layer2.2.x1": {
+      "name": "layer2.2.x1",
+      "count_seen": 81920000,
+      "min_value": -5.833237648010254,
+      "max_value": 7.40625,
+      "absmax": 7.40625,
+      "sample_count": 65536
+    },
+    "layer2.2.pre_bconv2_hardtanh": {
+      "name": "layer2.2.pre_bconv2_hardtanh",
+      "count_seen": 81920000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer2.2.second_affine": {
+      "name": "layer2.2.second_affine",
+      "count_seen": 81920000,
+      "min_value": -3.84375,
+      "max_value": 2.875,
+      "absmax": 3.84375,
+      "sample_count": 65536
+    },
+    "layer2.2.second_add": {
+      "name": "layer2.2.second_add",
+      "count_seen": 81920000,
+      "min_value": -7.940097808837891,
+      "max_value": 7.5,
+      "absmax": 7.940097808837891,
+      "sample_count": 65536
+    },
+    "layer2.2.qrprelu_output": {
+      "name": "layer2.2.qrprelu_output",
+      "count_seen": 81920000,
+      "min_value": -3.7396814823150635,
+      "max_value": 7.5,
+      "absmax": 7.5,
+      "sample_count": 65536
+    },
+    "layer3.0.first_affine": {
+      "name": "layer3.0.first_affine",
+      "count_seen": 40960000,
+      "min_value": -3.84375,
+      "max_value": 3.875,
+      "absmax": 3.875,
+      "sample_count": 65536
+    },
+    "layer3.0.stage_shortcut": {
+      "name": "layer3.0.stage_shortcut",
+      "count_seen": 40960000,
+      "min_value": -3.7396814823150635,
+      "max_value": 7.5,
+      "absmax": 7.5,
+      "sample_count": 65536
+    },
+    "layer3.0.x1": {
+      "name": "layer3.0.x1",
+      "count_seen": 40960000,
+      "min_value": -4.876009941101074,
+      "max_value": 8.390625,
+      "absmax": 8.390625,
+      "sample_count": 65536
+    },
+    "layer3.0.pre_bconv2_hardtanh": {
+      "name": "layer3.0.pre_bconv2_hardtanh",
+      "count_seen": 40960000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer3.0.second_affine": {
+      "name": "layer3.0.second_affine",
+      "count_seen": 40960000,
+      "min_value": -4.84375,
+      "max_value": 4.34375,
+      "absmax": 4.84375,
+      "sample_count": 65536
+    },
+    "layer3.0.second_add": {
+      "name": "layer3.0.second_add",
+      "count_seen": 40960000,
+      "min_value": -7.211825370788574,
+      "max_value": 8.671875,
+      "absmax": 8.671875,
+      "sample_count": 65536
+    },
+    "layer3.0.qrprelu_output": {
+      "name": "layer3.0.qrprelu_output",
+      "count_seen": 40960000,
+      "min_value": -3.4542760848999023,
+      "max_value": 8.671875,
+      "absmax": 8.671875,
+      "sample_count": 65536
+    },
+    "layer3.1.first_affine": {
+      "name": "layer3.1.first_affine",
+      "count_seen": 40960000,
+      "min_value": -4.921875,
+      "max_value": 4.03125,
+      "absmax": 4.921875,
+      "sample_count": 65536
+    },
+    "layer3.1.x1": {
+      "name": "layer3.1.x1",
+      "count_seen": 40960000,
+      "min_value": -6.0029497146606445,
+      "max_value": 9.890625,
+      "absmax": 9.890625,
+      "sample_count": 65536
+    },
+    "layer3.1.pre_bconv2_hardtanh": {
+      "name": "layer3.1.pre_bconv2_hardtanh",
+      "count_seen": 40960000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer3.1.second_affine": {
+      "name": "layer3.1.second_affine",
+      "count_seen": 40960000,
+      "min_value": -6.375,
+      "max_value": 5.40625,
+      "absmax": 6.375,
+      "sample_count": 65536
+    },
+    "layer3.1.second_add": {
+      "name": "layer3.1.second_add",
+      "count_seen": 40960000,
+      "min_value": -10.01553726196289,
+      "max_value": 10.265625,
+      "absmax": 10.265625,
+      "sample_count": 65536
+    },
+    "layer3.1.qrprelu_output": {
+      "name": "layer3.1.qrprelu_output",
+      "count_seen": 40960000,
+      "min_value": -4.834877967834473,
+      "max_value": 10.265625,
+      "absmax": 10.265625,
+      "sample_count": 65536
+    },
+    "layer3.2.first_affine": {
+      "name": "layer3.2.first_affine",
+      "count_seen": 40960000,
+      "min_value": -4.15625,
+      "max_value": 4.640625,
+      "absmax": 4.640625,
+      "sample_count": 65536
+    },
+    "layer3.2.x1": {
+      "name": "layer3.2.x1",
+      "count_seen": 40960000,
+      "min_value": -6.804605484008789,
+      "max_value": 12.03125,
+      "absmax": 12.03125,
+      "sample_count": 65536
+    },
+    "layer3.2.pre_bconv2_hardtanh": {
+      "name": "layer3.2.pre_bconv2_hardtanh",
+      "count_seen": 40960000,
+      "min_value": -1.0,
+      "max_value": 1.0,
+      "absmax": 1.0,
+      "sample_count": 65536
+    },
+    "layer3.2.second_affine": {
+      "name": "layer3.2.second_affine",
+      "count_seen": 40960000,
+      "min_value": -5.34375,
+      "max_value": 5.75,
+      "absmax": 5.75,
+      "sample_count": 65536
+    },
+    "layer3.2.second_add": {
+      "name": "layer3.2.second_add",
+      "count_seen": 40960000,
+      "min_value": -9.511934280395508,
+      "max_value": 11.59375,
+      "absmax": 11.59375,
+      "sample_count": 65536
+    },
+    "layer3.2.qrprelu_output": {
+      "name": "layer3.2.qrprelu_output",
+      "count_seen": 40960000,
+      "min_value": -0.022648101672530174,
+      "max_value": 11.59375,
+      "absmax": 11.59375,
+      "sample_count": 65536
+    },
+    "head.affine_output": {
+      "name": "head.affine_output",
+      "count_seen": 640000,
+      "min_value": -2.5917680263519287,
+      "max_value": 13.40230655670166,
+      "absmax": 13.40230655670166,
+      "sample_count": 65536
+    }
+  },
+  "pass_a_int8_mse": [
+    {
+      "node": "layer3.2.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 87.81,
+      "drop_vs_search_baseline_pp": 1.5300000000000011,
+      "search_saturation": 219
+    },
+    {
+      "node": "layer2.1.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 88.76,
+      "drop_vs_search_baseline_pp": 0.5799999999999983,
+      "search_saturation": 19591
+    },
+    {
+      "node": "layer1.1.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 88.78,
+      "drop_vs_search_baseline_pp": 0.5600000000000023,
+      "search_saturation": 122473
+    },
+    {
+      "node": "layer3.1.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 88.91,
+      "drop_vs_search_baseline_pp": 0.4300000000000068,
+      "search_saturation": 5
+    },
+    {
+      "node": "layer2.0.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.1,
+      "drop_vs_search_baseline_pp": 0.2400000000000091,
+      "search_saturation": 13104
+    },
+    {
+      "node": "layer2.0.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.13,
+      "drop_vs_search_baseline_pp": 0.21000000000000796,
+      "search_saturation": 30751
+    },
+    {
+      "node": "layer2.2.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.14,
+      "drop_vs_search_baseline_pp": 0.20000000000000284,
+      "search_saturation": 55783
+    },
+    {
+      "node": "layer2.1.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.21,
+      "drop_vs_search_baseline_pp": 0.13000000000000966,
+      "search_saturation": 17
+    },
+    {
+      "node": "layer3.0.stage_shortcut",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.23,
+      "drop_vs_search_baseline_pp": 0.10999999999999943,
+      "search_saturation": 5346
+    },
+    {
+      "node": "layer2.2.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.25,
+      "drop_vs_search_baseline_pp": 0.09000000000000341,
+      "search_saturation": 4820431
+    },
+    {
+      "node": "layer1.0.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.26,
+      "drop_vs_search_baseline_pp": 0.0799999999999983,
+      "search_saturation": 5884
+    },
+    {
+      "node": "layer1.2.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.26,
+      "drop_vs_search_baseline_pp": 0.0799999999999983,
+      "search_saturation": 2239
+    },
+    {
+      "node": "layer3.1.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.27,
+      "drop_vs_search_baseline_pp": 0.07000000000000739,
+      "search_saturation": 13679
+    },
+    {
+      "node": "layer3.2.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.28,
+      "drop_vs_search_baseline_pp": 0.060000000000002274,
+      "search_saturation": 306
+    },
+    {
+      "node": "layer3.2.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.3,
+      "drop_vs_search_baseline_pp": 0.04000000000000625,
+      "search_saturation": 2601
+    },
+    {
+      "node": "layer2.1.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.31,
+      "drop_vs_search_baseline_pp": 0.030000000000001137,
+      "search_saturation": 21897
+    },
+    {
+      "node": "layer3.1.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.31,
+      "drop_vs_search_baseline_pp": 0.030000000000001137,
+      "search_saturation": 17
+    },
+    {
+      "node": "layer3.1.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.31,
+      "drop_vs_search_baseline_pp": 0.030000000000001137,
+      "search_saturation": 2329316
+    },
+    {
+      "node": "layer3.2.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.31,
+      "drop_vs_search_baseline_pp": 0.030000000000001137,
+      "search_saturation": 2606993
+    },
+    {
+      "node": "layer1.2.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer2.1.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 13
+    },
+    {
+      "node": "layer2.2.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer3.1.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 146
+    },
+    {
+      "node": "layer3.2.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 88
+    },
+    {
+      "node": "layer1.0.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.33,
+      "drop_vs_search_baseline_pp": 0.010000000000005116,
+      "search_saturation": 41835
+    },
+    {
+      "node": "stem.post_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.34,
+      "drop_vs_search_baseline_pp": 0.0,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer1.1.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.34,
+      "drop_vs_search_baseline_pp": 0.0,
+      "search_saturation": 1848
+    },
+    {
+      "node": "layer3.0.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.34,
+      "drop_vs_search_baseline_pp": 0.0,
+      "search_saturation": 2014116
+    },
+    {
+      "node": "head.affine_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.34,
+      "drop_vs_search_baseline_pp": 0.0,
+      "search_saturation": 353
+    },
+    {
+      "node": "layer1.0.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.35,
+      "drop_vs_search_baseline_pp": -0.009999999999990905,
+      "search_saturation": 226
+    },
+    {
+      "node": "layer3.1.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.35,
+      "drop_vs_search_baseline_pp": -0.009999999999990905,
+      "search_saturation": 484
+    },
+    {
+      "node": "layer2.0.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.36,
+      "drop_vs_search_baseline_pp": -0.01999999999999602,
+      "search_saturation": 4182464
+    },
+    {
+      "node": "layer1.0.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.37,
+      "drop_vs_search_baseline_pp": -0.030000000000001137,
+      "search_saturation": 5895
+    },
+    {
+      "node": "layer1.0.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.38,
+      "drop_vs_search_baseline_pp": -0.03999999999999204,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer3.0.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.38,
+      "drop_vs_search_baseline_pp": -0.03999999999999204,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer3.2.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.43,
+      "drop_vs_search_baseline_pp": -0.09000000000000341,
+      "search_saturation": 23
+    },
+    {
+      "node": "layer1.1.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.44,
+      "drop_vs_search_baseline_pp": -0.09999999999999432,
+      "search_saturation": 27862
+    },
+    {
+      "node": "layer1.1.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.44,
+      "drop_vs_search_baseline_pp": -0.09999999999999432,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer3.0.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.45,
+      "drop_vs_search_baseline_pp": -0.10999999999999943,
+      "search_saturation": 7383
+    },
+    {
+      "node": "layer3.0.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.48,
+      "drop_vs_search_baseline_pp": -0.14000000000000057,
+      "search_saturation": 3
+    },
+    {
+      "node": "layer1.1.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.49,
+      "drop_vs_search_baseline_pp": -0.14999999999999147,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer2.1.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.49,
+      "drop_vs_search_baseline_pp": -0.14999999999999147,
+      "search_saturation": 4420619
+    },
+    {
+      "node": "layer2.2.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.49,
+      "drop_vs_search_baseline_pp": -0.14999999999999147,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer1.2.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.51,
+      "drop_vs_search_baseline_pp": -0.1700000000000017,
+      "search_saturation": 8803
+    },
+    {
+      "node": "layer2.2.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.51,
+      "drop_vs_search_baseline_pp": -0.1700000000000017,
+      "search_saturation": 4
+    },
+    {
+      "node": "layer2.1.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.55,
+      "drop_vs_search_baseline_pp": -0.20999999999999375,
+      "search_saturation": 8
+    },
+    {
+      "node": "layer2.2.qrprelu_output",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.55,
+      "drop_vs_search_baseline_pp": -0.20999999999999375,
+      "search_saturation": 23477
+    },
+    {
+      "node": "layer3.0.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.55,
+      "drop_vs_search_baseline_pp": -0.20999999999999375,
+      "search_saturation": 39
+    },
+    {
+      "node": "layer1.2.pre_bconv2_hardtanh",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.56,
+      "drop_vs_search_baseline_pp": -0.21999999999999886,
+      "search_saturation": 21265805
+    },
+    {
+      "node": "layer2.0.second_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.57,
+      "drop_vs_search_baseline_pp": -0.22999999999998977,
+      "search_saturation": 1737
+    },
+    {
+      "node": "layer1.2.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.6,
+      "drop_vs_search_baseline_pp": -0.2599999999999909,
+      "search_saturation": 1
+    },
+    {
+      "node": "layer2.0.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.62,
+      "drop_vs_search_baseline_pp": -0.28000000000000114,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer1.0.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.63,
+      "drop_vs_search_baseline_pp": -0.28999999999999204,
+      "search_saturation": 0
+    },
+    {
+      "node": "layer1.2.first_affine",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.71,
+      "drop_vs_search_baseline_pp": -0.36999999999999034,
+      "search_saturation": 2087
+    },
+    {
+      "node": "layer3.0.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.71,
+      "drop_vs_search_baseline_pp": -0.36999999999999034,
+      "search_saturation": 19854
+    },
+    {
+      "node": "layer2.0.stage_shortcut",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.74,
+      "drop_vs_search_baseline_pp": -0.3999999999999915,
+      "search_saturation": 2256
+    },
+    {
+      "node": "layer2.0.x1",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.74,
+      "drop_vs_search_baseline_pp": -0.3999999999999915,
+      "search_saturation": 9805
+    },
+    {
+      "node": "layer1.1.second_add",
+      "bits": 8,
+      "policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.8,
+      "drop_vs_search_baseline_pp": -0.45999999999999375,
+      "search_saturation": 0
+    }
+  ],
+  "top_policy_nodes": [
+    "layer3.2.qrprelu_output",
+    "layer2.1.qrprelu_output",
+    "layer1.1.qrprelu_output",
+    "layer3.1.qrprelu_output",
+    "layer2.0.first_affine",
+    "layer2.0.qrprelu_output",
+    "layer2.2.x1",
+    "layer2.1.second_add",
+    "layer3.0.stage_shortcut",
+    "layer2.2.pre_bconv2_hardtanh"
+  ],
+  "top_policy_ablation": {
+    "layer3.2.qrprelu_output": [
+      {
+        "policy": "mse",
+        "shift": 4,
+        "search_accuracy": 87.81,
+        "drop_vs_search_baseline_pp": 1.5300000000000011,
+        "search_saturation": 219
+      },
+      {
+        "policy": "p99.9",
+        "shift": 4,
+        "search_accuracy": 87.81,
+        "drop_vs_search_baseline_pp": 1.5300000000000011,
+        "search_saturation": 219
+      },
+      {
+        "policy": "p99.99",
+        "shift": 4,
+        "search_accuracy": 87.81,
+        "drop_vs_search_baseline_pp": 1.5300000000000011,
+        "search_saturation": 219
+      },
+      {
+        "policy": "absmax",
+        "shift": 3,
+        "search_accuracy": 87.64,
+        "drop_vs_search_baseline_pp": 1.7000000000000028,
+        "search_saturation": 0
+      }
+    ],
+    "layer2.1.qrprelu_output": [
+      {
+        "policy": "absmax",
+        "shift": 4,
+        "search_accuracy": 88.9,
+        "drop_vs_search_baseline_pp": 0.4399999999999977,
+        "search_saturation": 0
+      },
+      {
+        "policy": "p99.99",
+        "shift": 4,
+        "search_accuracy": 88.9,
+        "drop_vs_search_baseline_pp": 0.4399999999999977,
+        "search_saturation": 0
+      },
+      {
+        "policy": "mse",
+        "shift": 5,
+        "search_accuracy": 88.76,
+        "drop_vs_search_baseline_pp": 0.5799999999999983,
+        "search_saturation": 19591
+      },
+      {
+        "policy": "p99.9",
+        "shift": 5,
+        "search_accuracy": 88.76,
+        "drop_vs_search_baseline_pp": 0.5799999999999983,
+        "search_saturation": 19591
+      }
+    ],
+    "layer1.1.qrprelu_output": [
+      {
+        "policy": "mse",
+        "shift": 5,
+        "search_accuracy": 88.78,
+        "drop_vs_search_baseline_pp": 0.5600000000000023,
+        "search_saturation": 122473
+      },
+      {
+        "policy": "p99.9",
+        "shift": 5,
+        "search_accuracy": 88.78,
+        "drop_vs_search_baseline_pp": 0.5600000000000023,
+        "search_saturation": 122473
+      },
+      {
+        "policy": "absmax",
+        "shift": 4,
+        "search_accuracy": 86.64,
+        "drop_vs_search_baseline_pp": 2.700000000000003,
+        "search_saturation": 0
+      },
+      {
+        "policy": "p99.99",
+        "shift": 4,
+        "search_accuracy": 86.64,
+        "drop_vs_search_baseline_pp": 2.700000000000003,
+        "search_saturation": 0
+      }
+    ],
+    "layer3.1.qrprelu_output": [
+      {
+        "policy": "p99.9",
+        "shift": 5,
+        "search_accuracy": 88.97,
+        "drop_vs_search_baseline_pp": 0.37000000000000455,
+        "search_saturation": 16494
+      },
+      {
+        "policy": "mse",
+        "shift": 4,
+        "search_accuracy": 88.91,
+        "drop_vs_search_baseline_pp": 0.4300000000000068,
+        "search_saturation": 5
+      },
+      {
+        "policy": "p99.99",
+        "shift": 4,
+        "search_accuracy": 88.91,
+        "drop_vs_search_baseline_pp": 0.4300000000000068,
+        "search_saturation": 5
+      },
+      {
+        "policy": "absmax",
+        "shift": 3,
+        "search_accuracy": 88.78,
+        "drop_vs_search_baseline_pp": 0.5600000000000023,
+        "search_saturation": 0
+      }
+    ],
+    "layer2.0.first_affine": [
+      {
+        "policy": "absmax",
+        "shift": 5,
+        "search_accuracy": 89.14,
+        "drop_vs_search_baseline_pp": 0.20000000000000284,
+        "search_saturation": 0
+      },
+      {
+        "policy": "p99.99",
+        "shift": 5,
+        "search_accuracy": 89.14,
+        "drop_vs_search_baseline_pp": 0.20000000000000284,
+        "search_saturation": 0
+      },
+      {
+        "policy": "mse",
+        "shift": 6,
+        "search_accuracy": 89.1,
+        "drop_vs_search_baseline_pp": 0.2400000000000091,
+        "search_saturation": 13104
+      },
+      {
+        "policy": "p99.9",
+        "shift": 6,
+        "search_accuracy": 89.1,
+        "drop_vs_search_baseline_pp": 0.2400000000000091,
+        "search_saturation": 13104
+      }
+    ],
+    "layer2.0.qrprelu_output": [
+      {
+        "policy": "p99.99",
+        "shift": 4,
+        "search_accuracy": 89.33,
+        "drop_vs_search_baseline_pp": 0.010000000000005116,
+        "search_saturation": 0
+      },
+      {
+        "policy": "absmax",
+        "shift": 3,
+        "search_accuracy": 89.16,
+        "drop_vs_search_baseline_pp": 0.18000000000000682,
+        "search_saturation": 0
+      },
+      {
+        "policy": "mse",
+        "shift": 5,
+        "search_accuracy": 89.13,
+        "drop_vs_search_baseline_pp": 0.21000000000000796,
+        "search_saturation": 30751
+      },
+      {
+        "policy": "p99.9",
+        "shift": 5,
+        "search_accuracy": 89.13,
+        "drop_vs_search_baseline_pp": 0.21000000000000796,
+        "search_saturation": 30751
+      }
+    ],
+    "layer2.2.x1": [
+      {
+        "policy": "absmax",
+        "shift": 4,
+        "search_accuracy": 89.61,
+        "drop_vs_search_baseline_pp": -0.269999999999996,
+        "search_saturation": 0
+      },
+      {
+        "policy": "p99.99",
+        "shift": 4,
+        "search_accuracy": 89.61,
+        "drop_vs_search_baseline_pp": -0.269999999999996,
+        "search_saturation": 0
+      },
+      {
+        "policy": "mse",
+        "shift": 5,
+        "search_accuracy": 89.14,
+        "drop_vs_search_baseline_pp": 0.20000000000000284,
+        "search_saturation": 55783
+      },
+      {
+        "policy": "p99.9",
+        "shift": 5,
+        "search_accuracy": 89.14,
+        "drop_vs_search_baseline_pp": 0.20000000000000284,
+        "search_saturation": 55783
+      }
+    ],
+    "layer2.1.second_add": [
+      {
+        "policy": "absmax",
+        "shift": 3,
+        "search_accuracy": 89.22,
+        "drop_vs_search_baseline_pp": 0.12000000000000455,
+        "search_saturation": 0
+      },
+      {
+        "policy": "mse",
+        "shift": 4,
+        "search_accuracy": 89.21,
+        "drop_vs_search_baseline_pp": 0.13000000000000966,
+        "search_saturation": 17
+      },
+      {
+        "policy": "p99.9",
+        "shift": 4,
+        "search_accuracy": 89.21,
+        "drop_vs_search_baseline_pp": 0.13000000000000966,
+        "search_saturation": 17
+      },
+      {
+        "policy": "p99.99",
+        "shift": 4,
+        "search_accuracy": 89.21,
+        "drop_vs_search_baseline_pp": 0.13000000000000966,
+        "search_saturation": 17
+      }
+    ],
+    "layer3.0.stage_shortcut": [
+      {
+        "policy": "absmax",
+        "shift": 4,
+        "search_accuracy": 89.51,
+        "drop_vs_search_baseline_pp": -0.1700000000000017,
+        "search_saturation": 0
+      },
+      {
+        "policy": "p99.99",
+        "shift": 4,
+        "search_accuracy": 89.51,
+        "drop_vs_search_baseline_pp": -0.1700000000000017,
+        "search_saturation": 0
+      },
+      {
+        "policy": "mse",
+        "shift": 5,
+        "search_accuracy": 89.23,
+        "drop_vs_search_baseline_pp": 0.10999999999999943,
+        "search_saturation": 5346
+      },
+      {
+        "policy": "p99.9",
+        "shift": 5,
+        "search_accuracy": 89.23,
+        "drop_vs_search_baseline_pp": 0.10999999999999943,
+        "search_saturation": 5346
+      }
+    ],
+    "layer2.2.pre_bconv2_hardtanh": [
+      {
+        "policy": "absmax",
+        "shift": 6,
+        "search_accuracy": 89.69,
+        "drop_vs_search_baseline_pp": -0.3499999999999943,
+        "search_saturation": 0
+      },
+      {
+        "policy": "p99.9",
+        "shift": 6,
+        "search_accuracy": 89.69,
+        "drop_vs_search_baseline_pp": -0.3499999999999943,
+        "search_saturation": 0
+      },
+      {
+        "policy": "p99.99",
+        "shift": 6,
+        "search_accuracy": 89.69,
+        "drop_vs_search_baseline_pp": -0.3499999999999943,
+        "search_saturation": 0
+      },
+      {
+        "policy": "mse",
+        "shift": 7,
+        "search_accuracy": 89.25,
+        "drop_vs_search_baseline_pp": 0.09000000000000341,
+        "search_saturation": 4820431
+      }
+    ]
+  },
+  "selected_policy_by_node": {
+    "layer3.2.qrprelu_output": "mse",
+    "layer2.1.qrprelu_output": "absmax",
+    "layer1.1.qrprelu_output": "mse",
+    "layer3.1.qrprelu_output": "p99.9",
+    "layer2.0.first_affine": "absmax",
+    "layer2.0.qrprelu_output": "p99.99",
+    "layer2.2.x1": "absmax",
+    "layer2.1.second_add": "absmax",
+    "layer3.0.stage_shortcut": "absmax",
+    "layer2.2.pre_bconv2_hardtanh": "absmax",
+    "layer1.0.qrprelu_output": "mse",
+    "layer1.2.second_add": "mse",
+    "layer3.1.second_affine": "mse",
+    "layer3.2.second_add": "mse",
+    "layer3.2.second_affine": "mse",
+    "layer2.1.first_affine": "mse",
+    "layer3.1.x1": "mse",
+    "layer3.1.pre_bconv2_hardtanh": "mse",
+    "layer3.2.pre_bconv2_hardtanh": "mse",
+    "layer1.2.second_affine": "mse",
+    "layer2.1.second_affine": "mse",
+    "layer2.2.first_affine": "mse",
+    "layer3.1.first_affine": "mse",
+    "layer3.2.first_affine": "mse",
+    "layer1.0.second_affine": "mse",
+    "stem.post_hardtanh": "mse",
+    "layer1.1.first_affine": "mse",
+    "layer3.0.pre_bconv2_hardtanh": "mse",
+    "head.affine_output": "mse",
+    "layer1.0.first_affine": "mse",
+    "layer3.1.second_add": "mse",
+    "layer2.0.pre_bconv2_hardtanh": "mse",
+    "layer1.0.second_add": "mse",
+    "layer1.0.pre_bconv2_hardtanh": "mse",
+    "layer3.0.second_add": "mse",
+    "layer3.2.x1": "mse",
+    "layer1.1.x1": "mse",
+    "layer1.1.pre_bconv2_hardtanh": "mse",
+    "layer3.0.qrprelu_output": "mse",
+    "layer3.0.first_affine": "mse",
+    "layer1.1.second_affine": "mse",
+    "layer2.1.pre_bconv2_hardtanh": "mse",
+    "layer2.2.second_affine": "mse",
+    "layer1.2.qrprelu_output": "mse",
+    "layer2.2.second_add": "mse",
+    "layer2.1.x1": "mse",
+    "layer2.2.qrprelu_output": "mse",
+    "layer3.0.second_affine": "mse",
+    "layer1.2.pre_bconv2_hardtanh": "mse",
+    "layer2.0.second_affine": "mse",
+    "layer1.2.x1": "mse",
+    "layer2.0.second_add": "mse",
+    "layer1.0.x1": "mse",
+    "layer1.2.first_affine": "mse",
+    "layer3.0.x1": "mse",
+    "layer2.0.stage_shortcut": "mse",
+    "layer2.0.x1": "mse",
+    "layer1.1.second_add": "mse"
+  },
+  "final_single_node_sensitivity": [
+    {
+      "node": "layer3.2.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 87.81,
+      "drop_vs_search_baseline_pp": 1.5300000000000011,
+      "search_saturation": 219,
+      "sensitivity_class": "very_sensitive"
+    },
+    {
+      "node": "layer1.1.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 88.78,
+      "drop_vs_search_baseline_pp": 0.5600000000000023,
+      "search_saturation": 122473,
+      "sensitivity_class": "very_sensitive"
+    },
+    {
+      "node": "layer2.1.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "absmax",
+      "shift": 4,
+      "search_accuracy": 88.9,
+      "drop_vs_search_baseline_pp": 0.4399999999999977,
+      "search_saturation": 0,
+      "sensitivity_class": "very_sensitive"
+    },
+    {
+      "node": "layer3.1.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "p99.9",
+      "shift": 5,
+      "search_accuracy": 88.97,
+      "drop_vs_search_baseline_pp": 0.37000000000000455,
+      "search_saturation": 16494,
+      "sensitivity_class": "very_sensitive"
+    },
+    {
+      "node": "layer2.0.first_affine",
+      "bits": 8,
+      "selected_policy": "absmax",
+      "shift": 5,
+      "search_accuracy": 89.14,
+      "drop_vs_search_baseline_pp": 0.20000000000000284,
+      "search_saturation": 0,
+      "sensitivity_class": "sensitive"
+    },
+    {
+      "node": "layer2.1.second_add",
+      "bits": 8,
+      "selected_policy": "absmax",
+      "shift": 3,
+      "search_accuracy": 89.22,
+      "drop_vs_search_baseline_pp": 0.12000000000000455,
+      "search_saturation": 0,
+      "sensitivity_class": "sensitive"
+    },
+    {
+      "node": "layer1.0.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.26,
+      "drop_vs_search_baseline_pp": 0.0799999999999983,
+      "search_saturation": 5884,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer1.2.second_add",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.26,
+      "drop_vs_search_baseline_pp": 0.0799999999999983,
+      "search_saturation": 2239,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer3.1.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.27,
+      "drop_vs_search_baseline_pp": 0.07000000000000739,
+      "search_saturation": 13679,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer3.2.second_add",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.28,
+      "drop_vs_search_baseline_pp": 0.060000000000002274,
+      "search_saturation": 306,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer3.2.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.3,
+      "drop_vs_search_baseline_pp": 0.04000000000000625,
+      "search_saturation": 2601,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer2.1.first_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.31,
+      "drop_vs_search_baseline_pp": 0.030000000000001137,
+      "search_saturation": 21897,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer3.1.x1",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.31,
+      "drop_vs_search_baseline_pp": 0.030000000000001137,
+      "search_saturation": 17,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer3.1.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.31,
+      "drop_vs_search_baseline_pp": 0.030000000000001137,
+      "search_saturation": 2329316,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer3.2.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.31,
+      "drop_vs_search_baseline_pp": 0.030000000000001137,
+      "search_saturation": 2606993,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer1.2.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 0,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer2.1.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 13,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer2.2.first_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 0,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer3.1.first_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 146,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer3.2.first_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.32,
+      "drop_vs_search_baseline_pp": 0.020000000000010232,
+      "search_saturation": 88,
+      "sensitivity_class": "mild"
+    },
+    {
+      "node": "layer1.0.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.33,
+      "drop_vs_search_baseline_pp": 0.010000000000005116,
+      "search_saturation": 41835,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.0.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "p99.99",
+      "shift": 4,
+      "search_accuracy": 89.33,
+      "drop_vs_search_baseline_pp": 0.010000000000005116,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "stem.post_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.34,
+      "drop_vs_search_baseline_pp": 0.0,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.1.first_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.34,
+      "drop_vs_search_baseline_pp": 0.0,
+      "search_saturation": 1848,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.0.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.34,
+      "drop_vs_search_baseline_pp": 0.0,
+      "search_saturation": 2014116,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "head.affine_output",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.34,
+      "drop_vs_search_baseline_pp": 0.0,
+      "search_saturation": 353,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.0.first_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.35,
+      "drop_vs_search_baseline_pp": -0.009999999999990905,
+      "search_saturation": 226,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.1.second_add",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.35,
+      "drop_vs_search_baseline_pp": -0.009999999999990905,
+      "search_saturation": 484,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.0.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.36,
+      "drop_vs_search_baseline_pp": -0.01999999999999602,
+      "search_saturation": 4182464,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.0.second_add",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.37,
+      "drop_vs_search_baseline_pp": -0.030000000000001137,
+      "search_saturation": 5895,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.0.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.38,
+      "drop_vs_search_baseline_pp": -0.03999999999999204,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.0.second_add",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.38,
+      "drop_vs_search_baseline_pp": -0.03999999999999204,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.2.x1",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.43,
+      "drop_vs_search_baseline_pp": -0.09000000000000341,
+      "search_saturation": 23,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.1.x1",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.44,
+      "drop_vs_search_baseline_pp": -0.09999999999999432,
+      "search_saturation": 27862,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.1.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.44,
+      "drop_vs_search_baseline_pp": -0.09999999999999432,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.0.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.45,
+      "drop_vs_search_baseline_pp": -0.10999999999999943,
+      "search_saturation": 7383,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.0.first_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.48,
+      "drop_vs_search_baseline_pp": -0.14000000000000057,
+      "search_saturation": 3,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.1.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.49,
+      "drop_vs_search_baseline_pp": -0.14999999999999147,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.1.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.49,
+      "drop_vs_search_baseline_pp": -0.14999999999999147,
+      "search_saturation": 4420619,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.2.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.49,
+      "drop_vs_search_baseline_pp": -0.14999999999999147,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.2.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.51,
+      "drop_vs_search_baseline_pp": -0.1700000000000017,
+      "search_saturation": 8803,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.2.second_add",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.51,
+      "drop_vs_search_baseline_pp": -0.1700000000000017,
+      "search_saturation": 4,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.0.stage_shortcut",
+      "bits": 8,
+      "selected_policy": "absmax",
+      "shift": 4,
+      "search_accuracy": 89.51,
+      "drop_vs_search_baseline_pp": -0.1700000000000017,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.1.x1",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.55,
+      "drop_vs_search_baseline_pp": -0.20999999999999375,
+      "search_saturation": 8,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.2.qrprelu_output",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.55,
+      "drop_vs_search_baseline_pp": -0.20999999999999375,
+      "search_saturation": 23477,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.0.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.55,
+      "drop_vs_search_baseline_pp": -0.20999999999999375,
+      "search_saturation": 39,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.2.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 7,
+      "search_accuracy": 89.56,
+      "drop_vs_search_baseline_pp": -0.21999999999999886,
+      "search_saturation": 21265805,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.0.second_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.57,
+      "drop_vs_search_baseline_pp": -0.22999999999998977,
+      "search_saturation": 1737,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.2.x1",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.6,
+      "drop_vs_search_baseline_pp": -0.2599999999999909,
+      "search_saturation": 1,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.2.x1",
+      "bits": 8,
+      "selected_policy": "absmax",
+      "shift": 4,
+      "search_accuracy": 89.61,
+      "drop_vs_search_baseline_pp": -0.269999999999996,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.0.second_add",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.62,
+      "drop_vs_search_baseline_pp": -0.28000000000000114,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.0.x1",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.63,
+      "drop_vs_search_baseline_pp": -0.28999999999999204,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.2.pre_bconv2_hardtanh",
+      "bits": 8,
+      "selected_policy": "absmax",
+      "shift": 6,
+      "search_accuracy": 89.69,
+      "drop_vs_search_baseline_pp": -0.3499999999999943,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.2.first_affine",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 6,
+      "search_accuracy": 89.71,
+      "drop_vs_search_baseline_pp": -0.36999999999999034,
+      "search_saturation": 2087,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer3.0.x1",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.71,
+      "drop_vs_search_baseline_pp": -0.36999999999999034,
+      "search_saturation": 19854,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.0.stage_shortcut",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.74,
+      "drop_vs_search_baseline_pp": -0.3999999999999915,
+      "search_saturation": 2256,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer2.0.x1",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 5,
+      "search_accuracy": 89.74,
+      "drop_vs_search_baseline_pp": -0.3999999999999915,
+      "search_saturation": 9805,
+      "sensitivity_class": "robust"
+    },
+    {
+      "node": "layer1.1.second_add",
+      "bits": 8,
+      "selected_policy": "mse",
+      "shift": 4,
+      "search_accuracy": 89.8,
+      "drop_vs_search_baseline_pp": -0.45999999999999375,
+      "search_saturation": 0,
+      "sensitivity_class": "robust"
+    }
+  ]
+}

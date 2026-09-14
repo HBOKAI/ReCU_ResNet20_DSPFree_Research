@@ -1,0 +1,173 @@
+﻿profile,group,node,bits,shift,policy,semantics,source
+H2A-v2 SAFE,H1MP activation/residual,stem.post_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.0.first_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.0.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.0.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.0.second_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.0.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.0.qrprelu_output,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.1.first_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.1.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.1.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.1.second_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.1.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.1.qrprelu_output,12,8,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.2.first_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.2.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.2.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.2.second_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.2.second_add,8,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer1.2.qrprelu_output,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.0.first_affine,8,5,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.0.stage_shortcut,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.0.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.0.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.0.second_affine,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.0.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.0.qrprelu_output,6,2,p99.99,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.1.first_affine,7,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.1.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.1.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.1.second_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.1.second_add,8,3,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.1.qrprelu_output,12,8,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.2.first_affine,7,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.2.x1,6,2,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.2.pre_bconv2_hardtanh,6,4,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.2.second_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.2.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer2.2.qrprelu_output,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.0.first_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.0.stage_shortcut,6,2,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.0.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.0.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.0.second_affine,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.0.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.0.qrprelu_output,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.1.first_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.1.x1,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.1.pre_bconv2_hardtanh,7,6,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.1.second_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.1.second_add,7,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.1.qrprelu_output,10,7,p99.9,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.2.first_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.2.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.2.pre_bconv2_hardtanh,7,6,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.2.second_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.2.second_add,7,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,layer3.2.qrprelu_output,10,6,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,H1MP activation/residual,head.affine_output,6,2,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2A-v2 SAFE,binary accumulator,stem_cin96,11,,exact,XNOR/popcount signed accumulator,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,binary accumulator,cin16,9,,exact,XNOR/popcount signed accumulator,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,binary accumulator,cin32,10,,exact,XNOR/popcount signed accumulator,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,binary accumulator,cin64,11,,exact,XNOR/popcount signed accumulator,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer1.0.qrprelu_output,28,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer1.0.qrprelu_output,36,32,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer1.1.qrprelu_output,28,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer1.1.qrprelu_output,36,32,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer1.2.qrprelu_output,29,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer1.2.qrprelu_output,37,32,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer2.0.qrprelu_output,28,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer2.0.qrprelu_output,36,32,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer2.1.qrprelu_output,30,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer2.1.qrprelu_output,38,32,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer2.2.qrprelu_output,28,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer2.2.qrprelu_output,29,25,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer3.0.qrprelu_output,28,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer3.0.qrprelu_output,35,32,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer3.1.qrprelu_output,29,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer3.1.qrprelu_output,37,32,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU inner,layer3.2.qrprelu_output,29,24,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,QRPReLU output,layer3.2.qrprelu_output,36,32,assert,internal finite integer,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,GAP,gap.sum,16,6,finite,q_gap=q_sum; output shift=input shift+6,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,GAP,gap.output,16,12,finite,deferred scale; no /64 rounding,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,FC,fc.accumulator,24,11,finite,signed-pow2 shifted-product accumulation,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,FC,fc.bias_add,24,11,finite,H0 INT6 bias add,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,FC,final_logits,24,11,finite,finite output logits,H2_FINITE_WIDTH_RESULTS.json
+H2A-v2 SAFE,bias,H0 all 21 bias tensors,6,per-tensor,frozen,762 integer q values plus power-of-two scale,H0_INTEGER_BIAS_SWEEP_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,stem.post_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.0.first_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.0.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.0.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.0.second_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.0.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.0.qrprelu_output,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.1.first_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.1.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.1.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.1.second_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.1.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.1.qrprelu_output,12,8,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.2.first_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.2.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.2.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.2.second_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.2.second_add,8,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer1.2.qrprelu_output,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.0.first_affine,8,5,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.0.stage_shortcut,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.0.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.0.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.0.second_affine,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.0.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.0.qrprelu_output,6,2,p99.99,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.1.first_affine,7,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.1.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.1.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.1.second_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.1.second_add,8,3,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.1.qrprelu_output,12,8,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.2.first_affine,7,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.2.x1,6,2,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.2.pre_bconv2_hardtanh,6,4,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.2.second_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.2.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer2.2.qrprelu_output,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.0.first_affine,6,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.0.stage_shortcut,6,2,absmax,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.0.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.0.pre_bconv2_hardtanh,6,5,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.0.second_affine,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.0.second_add,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.0.qrprelu_output,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.1.first_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.1.x1,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.1.pre_bconv2_hardtanh,7,6,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.1.second_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.1.second_add,7,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.1.qrprelu_output,10,7,p99.9,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.2.first_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.2.x1,6,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.2.pre_bconv2_hardtanh,7,6,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.2.second_affine,7,4,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.2.second_add,7,3,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,layer3.2.qrprelu_output,10,6,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,H1MP activation/residual,head.affine_output,6,2,mse,frozen mixed-precision integer boundary,H1MP_SEARCH_RESULTS.json
+H2B AGGRESSIVE,binary accumulator,stem_cin96,11,,exact,XNOR/popcount signed accumulator,H2_FINITE_WIDTH_RESULTS.json
+H2B AGGRESSIVE,binary accumulator,cin16,9,,exact,XNOR/popcount signed accumulator,H2_FINITE_WIDTH_RESULTS.json
+H2B AGGRESSIVE,binary accumulator,cin32,10,,exact,XNOR/popcount signed accumulator,H2_FINITE_WIDTH_RESULTS.json
+H2B AGGRESSIVE,binary accumulator,cin64,11,,exact,XNOR/popcount signed accumulator,H2_FINITE_WIDTH_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer1.0.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer1.0.qrprelu_output,35,32,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer1.1.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer1.1.qrprelu_output,35,32,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer1.2.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer1.2.qrprelu_output,35,32,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer2.0.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer2.0.qrprelu_output,35,32,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer2.1.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer2.1.qrprelu_output,35,32,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer2.2.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer2.2.qrprelu_output,29,25,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer3.0.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer3.0.qrprelu_output,35,32,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer3.1.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer3.1.qrprelu_output,35,32,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU inner,layer3.2.qrprelu_output,27,24,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,QRPReLU output,layer3.2.qrprelu_output,35,32,saturate,internal finite integer,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,GAP,gap.sum,13,6,finite,q_gap=q_sum; output shift=input shift+6,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,GAP,gap.output,16,12,finite,deferred scale; no /64 rounding,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,FC,fc.accumulator,16,11,finite,signed-pow2 shifted-product accumulation,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,FC,fc.bias_add,24,11,finite,H0 INT6 bias add,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,FC,final_logits,16,11,finite,finite output logits,H2B_WIDTH_OPTIMIZATION_RESULTS.json
+H2B AGGRESSIVE,bias,H0 all 21 bias tensors,6,per-tensor,frozen,762 integer q values plus power-of-two scale,H0_INTEGER_BIAS_SWEEP_RESULTS.json

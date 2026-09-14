@@ -1,0 +1,37 @@
+{
+  "source_r4_checkpoint": "C:\\Users\\MCLAB\\OneDrive - 國立臺灣科技大學\\ForLab\\ReCU_ResNet20_DSPFree_Research\\experiments\\recu_r4\\recu_r4_qrprelu_fused_pow2_affine_20260912_110737\\best.pt",
+  "source_r4_best_acc": 86.11,
+  "source_r4_best_epoch": 98,
+  "initial_converted_test_acc": 22.54,
+  "best_test_acc": 83.77,
+  "best_epoch": 98,
+  "reload_test_acc": 83.77,
+  "final_test_acc": 83.63,
+  "elapsed_s": 1492.8086476325989,
+  "trainable_params": 270858,
+  "input_quantization": {
+    "total": 12582912,
+    "sat_low": 0,
+    "sat_high": 0,
+    "input_min": -2.1179039478302,
+    "input_max": 2.640000104904175,
+    "q_min": -68,
+    "q_max": 84,
+    "saturation_fraction": 0.0,
+    "scale_exp": -5,
+    "scale": 0.03125
+  },
+  "stem_weight_projection": {
+    "weight_count": 432,
+    "latent_min": -0.7381515502929688,
+    "latent_max": 0.6590112447738647,
+    "latent_mean": 0.002951305592432618,
+    "latent_std": 0.24134312570095062,
+    "binary_positive": 211,
+    "binary_negative": 221,
+    "latent_zero_count": 0,
+    "diagnostic_scaled_binary_mse": 0.024247370660305023,
+    "diagnostic_alpha_mean": 0.18176651000976562
+  },
+  "git_commit": ""
+}

@@ -1,0 +1,90 @@
+{
+  "variant": "r8b",
+  "source_stored_best_acc": 85.22,
+  "source_stored_best_epoch": 99,
+  "source_reload_acc": 85.22,
+  "zero_epoch_projection_acc": 84.35,
+  "delta_zero_vs_source_pp": -0.8700000000000045,
+  "best_acc": 85.4,
+  "best_epoch": 100,
+  "final_acc": 85.4,
+  "reload_acc": 85.4,
+  "delta_best_vs_source_pp": 0.18000000000000682,
+  "elapsed_s": 3937.0056657791138,
+  "classifier": {
+    "weights": 640,
+    "positive": 241,
+    "negative": 399,
+    "min_exponent": -9,
+    "max_exponent": 0,
+    "exponent_bit_width_signed": 5,
+    "unique_exponents": [
+      -9,
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1,
+      0
+    ],
+    "exponent_histogram": {
+      "-9": 4,
+      "-8": 7,
+      "-7": 10,
+      "-6": 22,
+      "-5": 54,
+      "-4": 74,
+      "-3": 162,
+      "-2": 181,
+      "-1": 97,
+      "0": 29
+    },
+    "is_exact_signed_pow2": true,
+    "bias_present": true,
+    "weight_storage_bits": 3840,
+    "bias_storage_bits_fp32": 320,
+    "classifier_storage_bits_estimate": 4160
+  },
+  "stem": {
+    "effective_unique_values": [
+      -1.0,
+      1.0
+    ],
+    "positive": 6877,
+    "negative": 6947,
+    "is_strict_binary": true,
+    "conv_bias_is_none": true
+  },
+  "freeze_report": {
+    "trainable_params": 284250,
+    "frozen_params": 672,
+    "frozen_parameter_names": [
+      "layer1.0.conv1.alpha",
+      "layer1.0.conv2.alpha",
+      "layer1.1.conv1.alpha",
+      "layer1.1.conv2.alpha",
+      "layer1.2.conv1.alpha",
+      "layer1.2.conv2.alpha",
+      "layer2.0.conv1.alpha",
+      "layer2.0.conv2.alpha",
+      "layer2.1.conv1.alpha",
+      "layer2.1.conv2.alpha",
+      "layer2.2.conv1.alpha",
+      "layer2.2.conv2.alpha",
+      "layer3.0.conv1.alpha",
+      "layer3.0.conv2.alpha",
+      "layer3.1.conv1.alpha",
+      "layer3.1.conv2.alpha",
+      "layer3.2.conv1.alpha",
+      "layer3.2.conv2.alpha"
+    ],
+    "frozen_parameter_categories": {
+      "r4_compatibility_alpha": 18
+    }
+  },
+  "fc_bias_present": true,
+  "git_commit": ""
+}

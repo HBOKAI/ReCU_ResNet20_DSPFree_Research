@@ -1,0 +1,32 @@
+{
+  "source": {
+    "model": "R8B-H0",
+    "expected_test_accuracy": 85.13,
+    "bias_width": 6,
+    "baseline_tolerance_pp": 0.08
+  },
+  "data_split": {
+    "calibration_samples": 10000,
+    "search_validation_samples": 10000,
+    "split_seed": 20260913,
+    "test_used_for_search": false
+  },
+  "h1s": {
+    "single_node_bits": 8,
+    "scale_policies": ["absmax", "mse", "p99.9", "p99.99"]
+  },
+  "h1mp": {
+    "high_precision_anchor_bits": 14,
+    "target_validation_drop_pp": 0.3,
+    "near_lossless_validation_drop_pp": 0.1,
+    "min_shift": -16,
+    "max_shift": 24
+  },
+  "output": {
+    "root": ".",
+    "h1s_results": "H1S_SINGLE_NODE_RESULTS.json",
+    "h1s_report": "H1S_SINGLE_NODE_REPORT.md",
+    "h1mp_results": "H1MP_SEARCH_RESULTS.json",
+    "h1mp_report": "H1MP_MIXED_PRECISION_REPORT.md"
+  }
+}

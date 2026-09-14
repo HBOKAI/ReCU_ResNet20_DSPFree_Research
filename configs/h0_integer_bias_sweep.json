@@ -1,0 +1,37 @@
+{
+  "source_expected_acc": 85.4,
+  "widths": [
+    8,
+    7,
+    6,
+    5,
+    4
+  ],
+  "optional_int3_if_int4_drop_le_pp": 0.5,
+  "shift_search": {
+    "shift_min": 0,
+    "shift_max": 12,
+    "fallback_shift_min": -12
+  },
+  "success_thresholds_pp": {
+    "near_lossless": 0.1,
+    "recommended": 0.3,
+    "absolute_minimum": 0.5
+  },
+  "dataset": {
+    "name": "cifar10",
+    "root": "./data",
+    "download": true
+  },
+  "training": {
+    "batch_size": 128,
+    "test_batch_size": 128,
+    "num_workers": 0,
+    "windows_safe_smoke": true
+  },
+  "output": {
+    "root": ".",
+    "results": "H0_INTEGER_BIAS_SWEEP_RESULTS.json",
+    "report": "H0_INTEGER_BIAS_SWEEP_REPORT.md"
+  }
+}

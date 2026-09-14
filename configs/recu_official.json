@@ -1,0 +1,37 @@
+{
+  "experiment": {
+    "name": "recu_resnet20_official_repro",
+    "seed": 123
+  },
+  "dataset": {
+    "name": "cifar10",
+    "root": "./data",
+    "download": true,
+    "protocol": "official_recu_train_test"
+  },
+  "model": {
+    "name": "resnet20_1w1a",
+    "num_classes": 10,
+    "activation_mode": "prelu",
+    "alpha_mode": "float"
+  },
+  "training": {
+    "epochs": 600,
+    "batch_size": 256,
+    "test_batch_size": 128,
+    "num_workers": 8,
+    "windows_safe_smoke": true,
+    "optimizer": "sgd",
+    "lr": 0.1,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "warm_up": true,
+    "tau_min": 0.85,
+    "tau_max": 0.99,
+    "scheduler": "official_cosine"
+  },
+  "output": {
+    "root": "experiments/recu_runs",
+    "registry": "experiments/recu_registry.csv"
+  }
+}
