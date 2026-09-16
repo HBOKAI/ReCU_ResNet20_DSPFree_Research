@@ -1,0 +1,37 @@
+{
+  "experiment": {
+    "name": "recu_r8b_long_controlled_600",
+    "seed": 123,
+    "validation_split_seed": 123
+  },
+  "dataset": {
+    "name": "cifar10",
+    "root": "./data",
+    "download": false
+  },
+  "training": {
+    "batch_size": 128,
+    "test_batch_size": 128,
+    "num_workers": 0,
+    "train_count": 45000,
+    "validation_count": 5000
+  },
+  "classifier": {
+    "type": "signed_pow2",
+    "bias": true,
+    "min_exp": null,
+    "max_exp": null
+  },
+  "finetune": {
+    "epochs": 600,
+    "lr": 0.0001,
+    "momentum": 0.9,
+    "weight_decay": 0.0,
+    "scheduler": "cosine",
+    "scheduler_t_max": 600,
+    "tau": 0.99
+  },
+  "output": {
+    "root": "experiments/recu_r8b_long"
+  }
+}

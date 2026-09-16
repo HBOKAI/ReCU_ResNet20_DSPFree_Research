@@ -1,5 +1,7 @@
 # ReCU ResNet-20 + DSP-Free Research Pack
 
+For the current safe H2A-v2 baseline, experiment reports, branch roles, and GitHub archive exclusions, see [Research archive and discussion guide](GITHUB_RESEARCH_INDEX.md) on the archive branch.
+
 This package has TWO strictly separated purposes.
 
 ## A. Official ReCU reproduction — do this first

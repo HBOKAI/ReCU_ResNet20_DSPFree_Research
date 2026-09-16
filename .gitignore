@@ -11,3 +11,11 @@ __pycache__/
 /experiments/*
 !/experiments/gmp_ablation/
 /ReCU_*_Pack/
+
+# Private credentials and generated model-weight exports are not archives.
+.env
+.env.*
+*.pem
+*.key
+/reference_inference/params_export/*.npz
+/experiments/gmp_ablation/*_smoke/
