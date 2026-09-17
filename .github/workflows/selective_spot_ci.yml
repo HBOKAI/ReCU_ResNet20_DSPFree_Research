@@ -31,11 +31,11 @@ jobs:
 
       - name: CLI import smoke
         run: |
-          python tools/audit_selective_spot.py --help >/dev/null
-          python tools/eval_selective_spot_sweep.py --help >/dev/null
-          python tools/train_selective_spot.py --help >/dev/null
-          python tools/select_selective_spot_candidate.py --help >/dev/null
-          python tools/build_selective_spot_report.py --help >/dev/null
+          python -m tools.audit_selective_spot --help >/dev/null
+          python -m tools.eval_selective_spot_sweep --help >/dev/null
+          python -m tools.train_selective_spot --help >/dev/null
+          python -m tools.select_selective_spot_candidate --help >/dev/null
+          python -m tools.build_selective_spot_report --help >/dev/null
 
       - name: Selective SPoT tests
         run: |
