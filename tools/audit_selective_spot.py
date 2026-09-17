@@ -2,10 +2,15 @@ import argparse
 import csv
 import json
 import statistics
+import sys
 from pathlib import Path
 from typing import Dict, List
 
 import torch
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from recu_hw.layers import iter_recu_binary_convs
 from recu_hw.model import ReCUResNet20
@@ -82,7 +87,6 @@ def collect_pre_affine_mean_square(model, loader, device) -> Dict[str, torch.Ten
     def make_hook(name):
         def hook(_module, inputs):
             x = inputs[0].detach()
-            # Sum over batch and spatial positions, retain channel dimension.
             sq = x.to(torch.float64).square().sum(dim=(0, 2, 3)).cpu()
             n = int(x.shape[0] * x.shape[2] * x.shape[3])
             if name not in sums:
@@ -221,7 +225,6 @@ def main():
         build_markdown(summary), encoding="utf-8"
     )
 
-    # TRAIN-only calibration. The official test dataset is not constructed.
     _, _, calibration_loader, split_meta = build_train_val_calibration_loaders(
         cfg, smoke=args.smoke
     )
