@@ -20,14 +20,14 @@ jobs:
           python-version: '3.11'
           cache: pip
 
-      - name: Install dependencies
+      - name: Install CPU PyTorch dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 
       - name: Selective SPoT tests
         run: |
-          python -m unittest tests.test_spot_affine tests.test_selective_spot -v
+          python -m unittest tests.test_spot_affine tests.test_selective_spot tests.test_spot_hardware -v
 
       - name: Full unit test suite
         run: |
