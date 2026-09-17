@@ -25,6 +25,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 
+      - name: Compile Python
+        run: |
+          python -m compileall -q recu_hw tools
+
+      - name: CLI import smoke
+        run: |
+          python tools/audit_selective_spot.py --help >/dev/null
+          python tools/eval_selective_spot_sweep.py --help >/dev/null
+          python tools/train_selective_spot.py --help >/dev/null
+          python tools/select_selective_spot_candidate.py --help >/dev/null
+          python tools/build_selective_spot_report.py --help >/dev/null
+
       - name: Selective SPoT tests
         run: |
           python -m unittest tests.test_spot_affine tests.test_selective_spot tests.test_spot_hardware -v
