@@ -12,18 +12,14 @@ def quantize_one_term_like_r4(
     exp_min: int = -16,
     exp_max: int = 8,
 ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-    """Reproduce the R4 one-term K quantizer exactly.
-
-    R4 stores sign(K) separately and quantizes log2(|K|) with round-to-nearest,
-    then clamps the integer exponent to [exp_min, exp_max].  Zero follows the
-    historical R4 initialization convention: positive sign and minimum
-    representable magnitude.
-    """
+    """Reproduce the R4 one-term K quantizer exactly."""
     sign = torch.where(k >= 0, torch.ones_like(k), -torch.ones_like(k))
     mag = k.abs().clamp_min(2.0 ** int(exp_min))
     exp = torch.round(torch.log2(mag))
     exp = torch.clamp(exp, int(exp_min), int(exp_max)).to(torch.int64)
-    q = sign * torch.pow(torch.tensor(2.0, device=k.device, dtype=k.dtype), exp.to(k.dtype))
+    q = sign * torch.pow(
+        torch.tensor(2.0, device=k.device, dtype=k.dtype), exp.to(k.dtype)
+    )
     return q, exp, sign
 
 
@@ -36,7 +32,7 @@ def _two_term_candidate_table(
 ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
     """Return deterministic canonical proper 2-term SPoT candidates.
 
-    Canonical form requires k1 > k2.  Candidate enumeration order is stable,
+    Canonical form requires k1 > k2. Candidate enumeration order is stable,
     so torch.argmin also gives deterministic tie breaking.
     """
     vals = []
@@ -45,8 +41,6 @@ def _two_term_candidate_table(
     s1s = []
     s2s = []
 
-    # Larger first exponent first, then larger second exponent, then signs.
-    # Positive sign precedes negative sign for deterministic exact ties.
     for k1 in range(int(exp_max), int(exp_min), -1):
         for k2 in range(k1 - 1, int(exp_min) - 1, -1):
             for s1, s2 in itertools.product((1.0, -1.0), repeat=2):
@@ -68,32 +62,23 @@ def _two_term_candidate_table(
     )
 
 
-@torch.no_grad()
-def best_two_term_or_one(
+def _best_two_term_from_table(
     k: torch.Tensor,
-    exp_min: int = -16,
-    exp_max: int = 8,
+    *,
+    exp_min: int,
+    exp_max: int,
+    cand: torch.Tensor,
+    k1_table: torch.Tensor,
+    k2_table: torch.Tensor,
+    s1_table: torch.Tensor,
+    s2_table: torch.Tensor,
 ) -> Dict[str, torch.Tensor]:
-    """Find the exact nearest legal representation using <=2 signed POT terms.
-
-    Proper 2-term candidates are searched exhaustively over the bounded
-    exponent/sign space.  If a one-term R4 value is equally good or better,
-    one-term wins and the second term is marked inactive.  This avoids paying
-    hardware for a redundant second term.
-    """
     shape = k.shape
     flat = k.detach().reshape(-1)
     q1, e1, s1_one = quantize_one_term_like_r4(flat, exp_min, exp_max)
 
-    cand, k1_table, k2_table, s1_table, s2_table = _two_term_candidate_table(
-        exp_min=exp_min,
-        exp_max=exp_max,
-        device=flat.device,
-        dtype=flat.dtype,
-    )
     err = torch.abs(flat[:, None] - cand[None, :])
     idx = torch.argmin(err, dim=1)
-
     q2 = cand[idx]
     k1 = k1_table[idx]
     k2 = k2_table[idx]
@@ -129,21 +114,44 @@ def best_two_term_or_one(
     }
 
 
+@torch.no_grad()
+def best_two_term_or_one(
+    k: torch.Tensor,
+    exp_min: int = -16,
+    exp_max: int = 8,
+) -> Dict[str, torch.Tensor]:
+    """Exact nearest legal representation using <=2 signed POT terms.
+
+    This stateless helper is intended for audits/tests. The trainable module
+    below caches the bounded candidate table as buffers so it does not rebuild
+    ~1200 candidates in every affine forward call.
+    """
+    cand, k1_table, k2_table, s1_table, s2_table = _two_term_candidate_table(
+        exp_min=exp_min,
+        exp_max=exp_max,
+        device=k.device,
+        dtype=k.dtype,
+    )
+    return _best_two_term_from_table(
+        k,
+        exp_min=exp_min,
+        exp_max=exp_max,
+        cand=cand,
+        k1_table=k1_table,
+        k2_table=k2_table,
+        s1_table=s1_table,
+        s2_table=s2_table,
+    )
+
+
 class SelectiveSPoTAffine2d(nn.Module):
     """Per-channel y = K*x + B with mixed one-term / <=2-term SPoT K.
 
-    This class is intentionally separate from FusedAffine2d so historical R4
-    checkpoints and semantics are untouched.
-
-    Unselected channels exactly use the R4 one-term forward:
-        sign(K0) * 2^round(log2_abs_k)
-
-    Selected channels use an exhaustive discrete <=2-term SPoT projection in
-    the forward pass.  The projected value is attached to the continuous
-    latent K with an identity STE for optimization.  The actual forward value
-    remains exactly representable by shift/negate (+ optional second
-    shift/negate and add); no arbitrary floating deployment multiplier leaks
-    into inference.
+    Historical FusedAffine2d is intentionally untouched. Unselected channels
+    use the exact R4 one-term forward. Selected channels project the continuous
+    latent K to an exact <=2-term signed-POT value and use identity STE only for
+    backward optimization. The numerical forward is always shift/add
+    representable.
     """
 
     def __init__(self, channels: int, exp_min: int = -16, exp_max: int = 8):
@@ -155,7 +163,24 @@ class SelectiveSPoTAffine2d(nn.Module):
         self.log2_abs_k = nn.Parameter(torch.zeros(self.channels))
         self.bias = nn.Parameter(torch.zeros(self.channels))
         self.register_buffer("sign_k", torch.ones(self.channels))
-        self.register_buffer("selected_2term", torch.zeros(self.channels, dtype=torch.bool))
+        self.register_buffer(
+            "selected_2term", torch.zeros(self.channels, dtype=torch.bool)
+        )
+
+        # Cache the exhaustive bounded search space once. These buffers follow
+        # the module across CPU/GPU and checkpoint reloads, avoiding expensive
+        # Python candidate construction inside every training forward.
+        cand, k1, k2, s1, s2 = _two_term_candidate_table(
+            exp_min=self.exp_min,
+            exp_max=self.exp_max,
+            device=torch.device("cpu"),
+            dtype=torch.float32,
+        )
+        self.register_buffer("_spot_candidates", cand, persistent=False)
+        self.register_buffer("_spot_k1", k1, persistent=False)
+        self.register_buffer("_spot_k2", k2, persistent=False)
+        self.register_buffer("_spot_s1", s1, persistent=False)
+        self.register_buffer("_spot_s2", s2, persistent=False)
 
     @torch.no_grad()
     def init_from_kb(self, k: torch.Tensor, b: torch.Tensor) -> None:
@@ -172,14 +197,37 @@ class SelectiveSPoTAffine2d(nn.Module):
 
     @torch.no_grad()
     def set_selected(self, mask: torch.Tensor) -> None:
-        mask = torch.as_tensor(mask, device=self.selected_2term.device, dtype=torch.bool).flatten()
+        mask = torch.as_tensor(
+            mask, device=self.selected_2term.device, dtype=torch.bool
+        ).flatten()
         if mask.numel() != self.channels:
-            raise ValueError(f"selection mask has {mask.numel()} values, expected {self.channels}")
+            raise ValueError(
+                f"selection mask has {mask.numel()} values, expected {self.channels}"
+            )
         self.selected_2term.copy_(mask)
 
     def _continuous_k(self) -> torch.Tensor:
         exp = torch.clamp(self.log2_abs_k, self.exp_min, self.exp_max)
         return self.sign_k * torch.pow(2.0, exp)
+
+    @torch.no_grad()
+    def _project_cached(self, k: torch.Tensor) -> Dict[str, torch.Tensor]:
+        # Candidate value/sign buffers are float32 by construction, matching
+        # the project's model precision. Cast defensively if a caller changes
+        # model dtype while keeping integer exponent buffers unchanged.
+        cand = self._spot_candidates.to(dtype=k.dtype)
+        s1 = self._spot_s1.to(dtype=k.dtype)
+        s2 = self._spot_s2.to(dtype=k.dtype)
+        return _best_two_term_from_table(
+            k,
+            exp_min=self.exp_min,
+            exp_max=self.exp_max,
+            cand=cand,
+            k1_table=self._spot_k1,
+            k2_table=self._spot_k2,
+            s1_table=s1,
+            s2_table=s2,
+        )
 
     def effective_k(self) -> torch.Tensor:
         exp_one = torch.clamp(
@@ -192,13 +240,10 @@ class SelectiveSPoTAffine2d(nn.Module):
 
         latent = self._continuous_k()
         with torch.no_grad():
-            rep = best_two_term_or_one(latent.detach(), self.exp_min, self.exp_max)
+            rep = self._project_cached(latent.detach())
             q_disc = rep["q"]
             active2 = rep["active2"] & self.selected_2term
 
-        # Identity STE for the selected proper 2-term projection.  Channels
-        # whose best <=2-term representation falls back to one-term retain the
-        # exact historical one-term path and its round_ste gradient.
         q_two_ste = latent + (q_disc - latent).detach()
         return torch.where(active2, q_two_ste, q_one)
 
@@ -210,10 +255,8 @@ class SelectiveSPoTAffine2d(nn.Module):
     @torch.no_grad()
     def discrete_terms(self) -> Dict[str, torch.Tensor]:
         latent = self._continuous_k().detach()
-        rep = best_two_term_or_one(latent, self.exp_min, self.exp_max)
+        rep = self._project_cached(latent)
 
-        # A channel only incurs a second term if it is selected AND a proper
-        # second term strictly improves the one-term value.
         active2 = rep["active2"] & self.selected_2term
         q = torch.where(active2, rep["q"], rep["one_q"])
         k1 = torch.where(active2, rep["k1"], rep["one_exp"])
