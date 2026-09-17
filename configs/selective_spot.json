@@ -1,0 +1,53 @@
+{
+  "experiment": {
+    "name": "selective_2term_spot_r4_sensitivity",
+    "seed": 123,
+    "mainline_reference_test_acc": 85.51,
+    "historical_r2_test_acc": 86.72,
+    "historical_r4_test_acc": 86.11
+  },
+  "dataset": {
+    "name": "cifar10",
+    "root": "./data",
+    "download": true,
+    "protocol": "official_recu_cifar10_train_test_with_train_only_selection"
+  },
+  "training": {
+    "batch_size": 256,
+    "test_batch_size": 128,
+    "num_workers": 8,
+    "windows_safe_smoke": true
+  },
+  "study": {
+    "split_seed": 123,
+    "val_size": 5000,
+    "calibration_size": 4096,
+    "coverage_pct": [0, 5, 10, 25, 50, 100],
+    "diagnostic_coverage_pct": [10, 25, 50, 100],
+    "expected_backbone_k": 672,
+    "ranking": "recoverable_distortion",
+    "smoke_train_size": 1024,
+    "smoke_val_size": 256,
+    "smoke_calibration_size": 256
+  },
+  "diagnostic": {
+    "epochs": 20,
+    "lr": 0.005,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "tau": 0.99,
+    "scheduler": "cosine"
+  },
+  "formal": {
+    "epochs": 100,
+    "lr": 0.005,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "tau": 0.99,
+    "scheduler": "cosine"
+  },
+  "output": {
+    "root": "experiments/selective_spot",
+    "report_root": "reports/selective_spot"
+  }
+}
